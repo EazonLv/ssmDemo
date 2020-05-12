@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.UserDao">
+    <resultMap id="userMap" type="com.entity.User">
+        <id property="userid" column="userid" />
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addUser" parameterType="com.entity.User">
+		insert into t_users(userid , username , password ) values(#{userid} , #{username} ,
+		#{password} )
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateUserInfo" parameterType="com.entity.User">
+		update t_users set username=#{username} , password=#{password}
+		where
+		userid=#{userid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteUser" parameterType="String">
+		delete from t_users where
+		userid = #{userid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllUsers" resultMap="userMap">
+		select * from t_users
+	</select>
+	<!-- 按条件精确查询 DAO通过id调用此配置 -->
+	<select id="findUserByCondition" parameterType="com.entity.User"
+			resultMap="userMap">
+		select * from t_users a where 1=1
+		<if test="username != null and '' != username">
+			and username = #{username}
+		</if>
+		<if test="password != null and '' != password">
+			and password = #{password}
+		</if>
+	</select>
+</mapper>
