@@ -51,6 +51,7 @@
         <id property="articleid" column="articleid"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
+        <result column="userid" property="userid"/>
         <association property="user"  javaType="com.entity.User">
             <id column="userid" property="userid"/>
             <result column="username" property="username"/>
