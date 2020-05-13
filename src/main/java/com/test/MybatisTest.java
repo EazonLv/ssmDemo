@@ -1,6 +1,8 @@
 package com.test;
 
+import com.dao.ArticleDao;
 import com.dao.UserDao;
+import com.entity.Article;
 import com.entity.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -28,13 +30,24 @@ public class MybatisTest {
 		//创建session对象
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		//获取代理对象
-		UserDao userDao = sqlSession.getMapper(UserDao.class);
-		//调用对象相关方法
+//		UserDao userDao = sqlSession.getMapper(UserDao.class);
+//		//调用对象相关方法
+//
+//
+//		User u = new User();
+//		u.setUsername("吕宜聪");
+//		List<User> userList = userDao.findUserByCondition(u);
+//		System.out.println(userList.get(0));
 
 		User u = new User();
 		u.setUsername("吕宜聪");
-		List<User> userList = userDao.findUserByCondition(u);
-		System.out.println(userList.get(0));
+		u.setPassword("123");
+		u.setUserid("A20200511004937285");
+
+		ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
+		Article article = new Article();
+		article.setUserid("A20200511004937285");
+		System.out.println(articleDao.findWriter(article));
 
 
 //		List<User> userList = userDao.findAllUsers();

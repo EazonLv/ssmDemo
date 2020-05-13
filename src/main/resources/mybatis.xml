@@ -24,5 +24,6 @@
 
     <mappers>
         <mapper resource="mapper/user.xml"></mapper>
+        <mapper resource="mapper/article.xml"></mapper>
     </mappers>
 </configuration>

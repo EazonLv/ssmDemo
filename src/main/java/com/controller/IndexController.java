@@ -14,6 +14,6 @@ public class IndexController extends BaseController{
 	}
 	@RequestMapping("/test")
 	public String test(){
-		return "navi";
+		return "userLogin";
 	}
 }

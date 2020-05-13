@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.ArticleDao">
+    <resultMap id="articleMap" type="com.entity.Article">
+        <id property="articleid" column="articleid"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="userid" column="userid"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addArticle" parameterType="com.entity.Article">
+		insert into t_articles(articleid , title , content , userid) values(#{articleid} , #{title} ,
+		#{content} , #{userid})
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateArticle" parameterType="com.entity.Article">
+		update t_articles set title=#{title} , content=#{content} , userid = #{userid,jdbcType=VARCHAR}
+		where
+		userid=#{userid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteArticle" parameterType="String">
+		delete from t_articles
+    where articleid = #{articleid,jdbcType=VARCHAR}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllArticle" resultMap="articleMap">
+		select * from t_articles
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findArticleByCondition" parameterType="com.entity.Article"
+            resultMap="articleMap">
+        select * from t_articles where 1=1
+        <if test="articleid != null and '' != articleid">
+            and articleid = #{articleid}
+        </if>
+        <if test="title != null and '' != title">
+            and title = #{title}
+        </if>
+        <if test="content != null and '' != content">
+            and content = #{content}
+        </if>
+        <if test="userid != null and '' != userid">
+            and userid = #{userid}
+        </if>
+    </select>
+    <!--查找文章作者-->
+    <resultMap id="writerMap" type="com.entity.Article">
+        <id property="articleid" column="articleid"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <association property="user"  javaType="com.entity.User">
+            <id column="userid" property="userid"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+        </association>
+    </resultMap>
+    <select id="findWriter" parameterType="com.entity.Article"
+            resultMap="writerMap">
+		select * from t_users u left join t_articles a on u.userid = a.userid  where a.userid=#{userid}
+	</select>
+</mapper>

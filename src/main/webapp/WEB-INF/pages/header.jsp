@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>navi</title>
+    <title>header</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
@@ -37,7 +37,7 @@
             <div>用户菜单</div>
             <div>Menu</div>
         </a>
-        <a class="items" href="">
+        <a class="items" href="/user/logout">
             <div>退出</div>
             <div>Logout</div>
         </a>

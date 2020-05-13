@@ -33,12 +33,12 @@ public class UserController extends BaseController{
 		List<User> usersList = this.userService.findUserByCondition(u);
 		if(usersList.size() != 0){
 			this.getSession().setAttribute("message", "用户名已存在");
-			return "respond/message";
+			return "response/message";
 		}else{
 			user.setUsername(username);
 			user.setPassword(password);
 			userService.addUser(user);
-			return "respond/success";
+			return "response/message";
 		}
 
 	}
@@ -63,7 +63,8 @@ public class UserController extends BaseController{
 		this.getSession().removeAttribute("userid");
 		this.getSession().removeAttribute("username");
 		this.getSession().removeAttribute("users");
-		return "reLogin";
+		this.getSession().setAttribute("message", "已退出");
+		return "response/message";
 	}
 
 	//登录
@@ -76,7 +77,7 @@ public class UserController extends BaseController{
 		List<User> usersList = this.userService.findUserByCondition(u);
 		if (usersList.size() == 0) {
 			this.getSession().setAttribute("message", "用户名不存在");
-			return "respond/message";
+			return "response/message";
 		} else {
 			User user = usersList.get(0);
 			if (password.equals(user.getPassword())) {
@@ -86,7 +87,7 @@ public class UserController extends BaseController{
 				return "loginIndex";
 			} else {
 				this.getSession().setAttribute("message", "密码错误");
-				return "respond/message";
+				return "response/message";
 			}
 		}
 	}
