@@ -1,9 +1,7 @@
 package com.test;
 
 import com.dao.ArticleDao;
-import com.dao.UserDao;
 import com.entity.Article;
-import com.entity.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,7 +10,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 
 public class MybatisTest {
@@ -39,15 +36,17 @@ public class MybatisTest {
 //		List<User> userList = userDao.findUserByCondition(u);
 //		System.out.println(userList.get(0));
 
-		User u = new User();
-		u.setUsername("吕宜聪");
-		u.setPassword("123");
-		u.setUserid("A20200511004937285");
+//		User u = new User();
+//		u.setUsername("吕宜聪");
+//		u.setPassword("123");
+//		u.setUserid("A20200511004937285");
 
 		ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
 		Article article = new Article();
 		article.setUserid("A20200511004937285");
 		System.out.println(articleDao.findWriter(article));
+		Article article2 = (Article) articleDao.findWriter(article).get(0);
+		System.out.println(article2.getUser().getUsername());
 
 
 //		List<User> userList = userDao.findAllUsers();
