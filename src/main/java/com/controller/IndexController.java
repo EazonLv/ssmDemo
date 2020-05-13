@@ -12,4 +12,8 @@ public class IndexController extends BaseController{
 		if (this.getSession().getAttribute("userid") == null){ return "reLogin"; }
 		return "addUser";
 	}
+	@RequestMapping("/test")
+	public String test(){
+		return "navi";
+	}
 }

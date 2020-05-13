@@ -1,0 +1,9 @@
+.navi_icon { display: inline-block; position: relative; width: 30px; height: 5px; background-color: #108ee9; margin-top: 20px;}
+.navi_icon:before, .navi_icon:after { content: ''; display: block; width: 30px; height: 5px; position: absolute; background: #108ee9; -webkit-transition-property: margin, -webkit-transform; transition-property: margin, -webkit-transform; transition-property: margin, transform; transition-property: margin, transform, -webkit-transform; -webkit-transition-duration: 300ms; transition-duration: 300ms; }
+.navi_icon:before { margin-top: -10px; }
+.navi_icon:after { margin-top: 10px; }
+.navi_open .navi_icon { background: none }
+.navi_open .navi_icon:before { margin-top: 0; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+.navi_open .navi_icon:after { margin-top: 0; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+.navi_open .navi_icon:before, .open .navi_icon:after { content: ''; display: block; width: 30px; height: 5px; position: absolute; background: #108ee9; }
+.navi_close{}

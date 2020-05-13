@@ -1,0 +1,78 @@
+@font-face {/* font-properties */font-family: RBNo2;src:url('../font/RBNo2Light.otf'),url('../font/RBNo2Light_a.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Black;src:url('../font/OstrichSans-Black.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Regular;src:url('../font/OstrichSansInline-Regular.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Medium;src:url('../font/OstrichSansDashed-Medium.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Bold;src:url('../font/OstrichSans-Bold.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Heavy;src:url('../font/OstrichSans-Heavy.otf');}
+@font-face {/* font-properties */font-family: OstrichSansInline-Italic;src:url('../font/OstrichSansInline-Italic.otf');}
+@font-face {/* font-properties */font-family: OstrichSans-Light;src:url('../font/OstrichSans-Light.otf');}
+@font-face {/* font-properties */font-family: OstrichSansRounded-Medium;src:url('../font/OstrichSansRounded-Medium.otf');}
+@font-face {/* font-properties */font-family: AWESOME8;src:url('../font/AWESOME8.TTF');}
+@font-face {/* font-properties */font-family: charms_ot;src:url('../font/charms_ot.otf');}
+@font-face {/* font-properties */font-family: one_trick_pony_ot;src:url('../font/one_trick_pony_ot.otf');}
+@font-face {/* font-properties */font-family: print_bold_ot;src:url('../font/print_bold_ot.otf');}
+@font-face {/* font-properties */font-family: print_clearly_ot;src:url('../font/print_clearly_ot.otf');}
+@font-face {/* font-properties */font-family: pocket_calcuatlor_ot;src:url('../font/pocket_calcuatlor_ot.otf');}
+@font-face {/* font-properties */font-family: yyxmt;src:url('../font/yyxmt.ttf');}
+@font-face {/* font-properties */font-family: xdxwctx;src:url('../font/xdxwctx.ttf');}
+@font-face {/* font-properties */font-family: cyjxy;src:url('../font/cyjxy.TTF');}
+body{}
+body::-webkit-scrollbar {width: 4px;height: 4px;}
+body::-webkit-scrollbar-thumb {-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);background: #777777;}
+body::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);border-radius: 10px;background: #ffffff;}
+.header{cursor: default;padding-left:25px;padding-top:15px;text-align: left;font-size: 75px;font-family: RBNo2;letter-spacing: 10px;display: inline-block;width: 40%;}
+.subheader{letter-spacing: 2px;font-size: 15px;}
+.main{display: flex;width: 100%;}
+.content{}
+.aside{text-align: center;align-items: center;margin-top: 10px;margin-top: 50px;}
+.aside_content{padding: 30px;width:80px;margin-left: auto;margin-right: auto;text-align: center;height:75px;}
+.home{border: 2px solid #363636;height: 550px;width: 1200px;margin-left: auto;margin-right: auto;margin-top: 60px;text-align: center;border-radius: 20px;}
+.home p{padding-top: 20px;}
+.login{margin-left: auto;margin-right: auto;margin-top: 100px;}
+.login_title{cursor: default;font-size: 140px;font-family: OstrichSansRounded-Medium;text-align: center;color: #662007;}
+.login_input{display: inline-block;}
+.login_input div{margin-top: 25px;flex: 1;}
+.login_input input{width: 200px;height: 40px;background-color: #f7fcff;border: 1px solid black;border-radius: 10px;opacity: 1;padding-left:15px;}
+.login_input input:focus{outline: none;}
+.login_input label{margin-right: 20px;color: black;opacity: 1;}
+.login_input button{width: 160px;height: 45px;background-color: #108ee9;border:none ;border-radius: 10px;}
+.login_input button:focus{outline: none;}
+.bg_image{height: auto;background: url(../img/bc7d5760d4c9ab2a121afb647c218a84.jpg) no-repeat center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+.login_bg{background-color: white;opacity: 0.6;height: 500px;}
+.bg_image_main{height: auto;background: url(../img/bc7d5760d4c9ab2a121afb647c218a84.jpg) no-repeat center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+#ID{margin-right: 70px;}
+#login_button{margin-right: 30px;}
+.welcome_content{cursor: default;display: flex;margin-top: 50px;}
+.welcome_content div{margin: auto;}
+.welcome_content p{color: black;}
+#welcome_content_CHS p{font-size: 25px;font-weight: lighter;font-family:"幼圆";line-height: 40px;width: 350px;text-align: center;}
+#welcome_content_EN p{font-family:print_clearly_ot;font-size: 40px;width: 350px;text-align: center;}
+#welcome_navi{text-align: center;margin-top: 60px;}
+#welcome_navi button{padding-left: 20px;padding-right: 20px;padding-top: 10px;padding-bottom: 10px;width: 300px;border:none;border-radius: 10px;}
+#welcome_navi button:focus{outline: none;}
+.navi{background-color: white;opacity: 0.6;width: 100%;display: flex;z-index: 11;}
+.navi div{color:black;}
+.header_main_page{cursor: default;padding-left:25px;text-align: left;letter-spacing: 10px;display: inline-block;margin-top: 10px;}
+.subheader_main_page{letter-spacing: 2px;font-size: 10px;margin-bottom: 5px;}
+#heaher{font-family: RBNo2;font-size: 30px;}
+.items{text-align: center;margin-left: auto;margin-right: auto;width: 100px;padding-top: 10px;padding-bottom: 10px}
+.items div{font-size: 15px;}
+.copyright{cursor: default;text-align: center;background-color: rgba(255,255,255,0.6);margin-top: 50px;padding: 20px;color: black}
+.subitem_subheader{cursor:pointer;}
+
+
+
+/*实现背景大小随窗口变化而变化,还需加一个 html{height: 100%;}*/
+.bg_image{height: auto;background: url(../img/bc7d5760d4c9ab2a121afb647c218a84.jpg) no-repeat center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;color: rgba(255, 255, 255, .1)}
+
+/*背景虚化*/
+.bg-blur {float: left;width: 100%;background-repeat: no-repeat;background-position: center;background-size: cover;-webkit-filter: blur(15px);-moz-filter: blur(15px);-o-filter: blur(15px);-ms-filter: blur(15px);filter: blur(15px);}
+
+/*禁止文本选中*/
+.no_select{
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none;  /*webkit浏览器*/
+    -ms-user-select: none;   /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}

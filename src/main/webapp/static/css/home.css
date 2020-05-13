@@ -1,0 +1,34 @@
+html{height: 100%}
+body{color: #363636}
+.content{display:inline-block;width: 94%;margin-top: 20px;padding-left: 3%;padding-right: 3%;}
+.content_{display: flex}
+.left_content{width: 29%;margin-right: 10px;}
+.left_content div{background-color: rgba(255,255,255,0.6);margin-bottom: 10px;}
+.right_content{width: 70%;}
+.right_content div{background-color: rgba(255,255,255,0.6);margin-bottom: 10px;}
+
+.subitem_about_me{}
+.subitem_about_me h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
+.subitem_about_me_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
+#photo{width: 50%;padding-right: 5px;padding-top: 5px;}
+
+.subitem_album{}
+.subitem_album h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
+.subitem_album_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
+#subitem_album{text-align: center;}
+#subitem_album img{width: 45%;padding: 5px}
+
+.subitem_message{padding-bottom: 5px;}
+.subitem_message h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
+.subitem_message_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
+#subitem_message div{padding: 10px;background-color: #dddddd;border-radius: 10px;}
+#subitem_message span{font-size: 15px;color: #108ee9;word-break: keep-all;}
+
+.subitem_contact{}
+.subitem_contact h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
+.subitem_contact_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
+#subitem_contact img{width: 95%;}
+
+.subitem_summary_title{padding: 10px;font-size: 30px;text-decoration: none;color: #07558c;}
+.subitem_summary_content{padding: 10px;width: 80%;word-break: break-all;}
+
