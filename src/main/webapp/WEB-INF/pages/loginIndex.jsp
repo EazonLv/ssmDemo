@@ -11,7 +11,8 @@
     <title>loginIndex</title>
 </head>
 <body>
-<a href="/index/addUser.action">增加用户</a>
-<a href="/user/findAllUsers.action">显示所有用户</a>
+<a href="/index/addUser">增加用户</a>
+<a href="/user/findAllUsers">显示所有用户</a>
+<a href="/user/logout">退出登录</a>
 </body>
 </html>

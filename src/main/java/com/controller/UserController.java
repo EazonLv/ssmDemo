@@ -2,70 +2,53 @@ package com.controller;
 
 import com.entity.User;
 import com.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.annotation.Resource;
 import java.util.List;
 
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController{
+	@Resource
+	private UserService userService;
 
-	@Autowired
-	UserService userService;
-
-
-	/**
-	 * 公用方法：获取Request
-	 * @return
-	 */
-	public HttpServletRequest getRequest() {
-		ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder
-				.getRequestAttributes();
-		return attrs.getRequest();
-	}
-
-	/**
-	 * 公用方法：获取Session
-	 * @return
-	 */
-	public HttpSession getSession() {
-		HttpSession session = null;
-		session = this.getRequest().getSession();
-		return session;
-	}
-
-	/**
-	 * 增加用户
-	 * @param user
-	 * @return
-	 */
+	//添加用户
 	@RequestMapping("/addUser")
 	public String addUser(User user){
 //		System.out.println("已增加新用户");
-		ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-		String password = attrs.getRequest().getParameter("password");
-		String username = attrs.getRequest().getParameter("username");
-		user.setUsername(username);
-		user.setPassword(password);
-		userService.addUser(user);
-		return "respond/success";
+		//验证登录
+		if (this.getSession().getAttribute("userid") == null){ return "reLogin"; }
+
+		String password = this.getRequest().getParameter("password");
+		String username = this.getRequest().getParameter("username");
+
+		User u = new User();
+		u.setUsername(username);
+		List<User> usersList = this.userService.findUserByCondition(u);
+		if(usersList.size() != 0){
+			this.getSession().setAttribute("message", "用户名已存在");
+			return "respond/message";
+		}else{
+			user.setUsername(username);
+			user.setPassword(password);
+			userService.addUser(user);
+			return "respond/success";
+		}
+
 	}
 
-	/**
-	 * 查找所有用户
-	 * @param model
-	 * @return
-	 */
+	//查找所有用户
 	@RequestMapping("/findAllUsers")
 	public String findAllUsers(Model model){
+		//验证登录
+		if (this.getSession().getAttribute("userid") == null){ return "reLogin"; }
+
 		List<User> userList = userService.findAllUsers();
 		for (User user:userList){
 			System.out.println(user);
@@ -73,8 +56,19 @@ public class UserController {
 		model.addAttribute("list",userList);
 		return "allUsers";
 	}
+
+	//退出登录
+	@RequestMapping("/logout")
+	public String userLogout(){
+		this.getSession().removeAttribute("userid");
+		this.getSession().removeAttribute("username");
+		this.getSession().removeAttribute("users");
+		return "reLogin";
+	}
+
+	//登录
 	@RequestMapping("/login")
-	public String userLogin(Model model){
+	public String userLogin(){
 		String username = this.getRequest().getParameter("username");
 		String password = this.getRequest().getParameter("password");
 		User u = new User();
@@ -96,4 +90,5 @@ public class UserController {
 			}
 		}
 	}
+
 }
