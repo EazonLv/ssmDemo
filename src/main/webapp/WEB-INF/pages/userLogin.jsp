@@ -39,7 +39,7 @@
 <body class="bg_image_main no_select">
 <jsp:include page="header.jsp"></jsp:include>
 
-<div class="login no_select">
+<div class="login no_select" style="z-index: -1">
     <form class="login_bg" method="post" action="/user/login">
         <div class="login_input">
             <div><label id="ID">用户名/ID：</label><input type="text" name="username"/></div>
@@ -48,7 +48,7 @@
         </div>
     </form>
 </div>
-
+<jsp:include page="write.jsp"></jsp:include>
 <jsp:include page="footer.jsp"></jsp:include>
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="${path}/static/js/common.js" type="text/javascript"></script>

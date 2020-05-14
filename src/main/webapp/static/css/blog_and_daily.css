@@ -54,8 +54,8 @@ html{height: 100%}
 #write_textarea_article_content{resize:none;width: 80%;height: 430px;margin-left: auto;margin-right: auto;border: none;padding: 10px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;background: #D0DDEF;}
 #write_textarea_article_content:focus{outline: none;}
 .write_textarea_article_button{text-align: right;}
-.write_textarea_article_button button:first-child{margin-top: 20px;margin-right: 20px;padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #e84a10;cursor: pointer;color: #dddddd;font-size: 15px;}
-.write_textarea_article_button button:last-child{margin-top: 20px;margin-right: 20px;padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #108ee9;cursor: pointer;color: #dddddd;font-size: 15px;}
+.write_textarea_article_button button:first-child{padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #e84a10;cursor: pointer;color: #dddddd;font-size: 15px;}
+.write_textarea_article_button button:last-child{padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #108ee9;cursor: pointer;color: #dddddd;font-size: 15px;}
 .write_textarea_article_button button:focus{outline: none;}
 
 .write_textarea_daily{display:none;position: fixed;margin:auto;left:0; right:0; top:0; bottom:0;height: 650px;width: 90%;background: rgba(205,233,246,0.8);border-radius: 10px;}

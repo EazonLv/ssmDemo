@@ -14,23 +14,21 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDao articleDao;
 
 	@Override
-	public int addArticle(Article article) {
-		return 0;
-	}
+	public int addArticle(Article article) { return articleDao.addArticle(article);	}
 
 	@Override
 	public int updateArticle(Article article) {
-		return 0;
+		return articleDao.updateArticle(article);
 	}
 
 	@Override
 	public int deleteArticle(Article article) {
-		return 0;
+		return articleDao.deleteArticle(article);
 	}
 
 	@Override
 	public List<Article> findAllArticle() {
-		return null;
+		return articleDao.findAllArticle();
 	}
 
 	@Override
@@ -39,7 +37,5 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public List<String> findWriter(Article article) {
-		return articleDao.findWriter(article);
-	}
+	public List<Article> findWriter(Article article) { return articleDao.findWriter(article); }
 }

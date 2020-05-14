@@ -1,7 +1,6 @@
 package com.dao;
 
 import com.entity.Article;
-import com.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public interface ArticleDao {
 	 * @param article
 	 * @return
 	 */
-	public List<String> findWriter(Article article);
+	public List<Article> findWriter(Article article);
 
 
 }

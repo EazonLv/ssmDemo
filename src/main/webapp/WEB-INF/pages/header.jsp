@@ -15,9 +15,26 @@
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
+    <style type="text/css">
+        #userMenu ul{
+            float: top;
+
+            width: inherit;
+
+        }
+
+        #userMenu ul li{
+            width: inherit;
+
+        }
+        #userMenu a{color: #363636;font-size: 15px;}
+
+        ._items{text-align: center;margin-left: auto;margin-right: auto;width: 100%;padding-top: 10px;padding-bottom: 10px}
+        ._items a{text-decoration: none;}
+    </style>
 </head>
 <body>
-<div class="navi">
+<div class="navi" style="z-index: 99999">
     <div class="header_main_page">
         <div id="heaher">My Blog</div>
         <div id="subheader" class="subheader_main_page"></div>
@@ -33,14 +50,17 @@
         </a>
     </c:if>
     <c:if test="${sessionScope.userid != null}">
-        <a class="items" href="">
-            <div>用户菜单</div>
-            <div>Menu</div>
-        </a>
-        <a class="items" href="/user/logout">
-            <div>退出</div>
-            <div>Logout</div>
-        </a>
+        <ul class="items" href="" id="userMenu" style="cursor:pointer;">
+            <div>
+                <div>用户菜单</div>
+                <div>Menu</div>
+            </div>
+            <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
+                <li class="_items" id="article_write"><a  href="#">写博文</a></li>
+                <li class="_items" id="daily_write"><a  href="#">写日志</a></li>
+                <li class="_items"><a  href="/user/logout">退出</a></li>
+            </ul>
+        </ul>
     </c:if>
     <a class="items" href="">
         <div>相册</div>
@@ -59,10 +79,33 @@
         <div>Link</div>
     </a>
 </div>
+
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
 <script src="${path}/static/js/home.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $("#userMenu").hover(
+        function () {
+            $("._items").css("background","buttonface");
+            $("#userMenuUl").css("display","block");
+            $(this).css("background","buttonface");
+        },
+        function () {
+            $("._items").css("background","white");
+            $(this).css("background","white");
+            $("#userMenuUl").css("display","none");
+        }
+    )
 
+    $("._items").hover(
+        function () {
+            $(this).css("background","#97cff7");
+        },
+        function () {
+            $(this).css("background","buttonface");
+        }
+    )
+</script>
 </body>
 </body>
 </html>

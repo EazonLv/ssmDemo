@@ -64,7 +64,7 @@ public class UserController extends BaseController{
 		this.getSession().removeAttribute("username");
 		this.getSession().removeAttribute("users");
 		this.getSession().setAttribute("message", "已退出");
-		return "response/message";
+		return "redirect:/index/test";
 	}
 
 	//登录
@@ -84,7 +84,7 @@ public class UserController extends BaseController{
 				this.getSession().setAttribute("userid", user.getUserid());
 				this.getSession().setAttribute("username", user.getUsername());
 				this.getSession().setAttribute("user", user);
-				return "loginIndex";
+				return "redirect:/index/test";
 			} else {
 				this.getSession().setAttribute("message", "密码错误");
 				return "response/message";

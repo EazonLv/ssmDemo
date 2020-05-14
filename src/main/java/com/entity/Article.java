@@ -1,7 +1,9 @@
 package com.entity;
 
+import com.util.VeDate;
+
 public class Article {
-	private String articleid;
+	private String articleid = "ATC"+VeDate.getStringId();
 	private String title;
 	private String content;
 	private String userid;

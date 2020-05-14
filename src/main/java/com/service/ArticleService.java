@@ -39,5 +39,5 @@ public interface ArticleService {
 	 * @param article
 	 * @return
 	 */
-	public List<String> findWriter(Article article);
+	public List<Article> findWriter(Article article);
 }
