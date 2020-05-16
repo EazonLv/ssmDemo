@@ -3,10 +3,11 @@ package com.service.impl;
 import com.dao.MsgleavewordDao;
 import com.entity.Msgleaveword;
 import com.service.MsgleavewordService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+@Service("msgleavewordService")
 public class MsgleavewordServiceImpl implements MsgleavewordService {
 	@Resource
 	private MsgleavewordDao msgleavewordDao;

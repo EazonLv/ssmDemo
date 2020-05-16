@@ -41,7 +41,7 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="login no_select">
-    <form class="login_bg" method="post" action="/user/login">
+    <form class="login_bg" method="post" action="/user/login" style="height: 525px;">
         <div class="login_input">
             <div><label id="ID">用户名/ID：</label><input type="text" name="username"/></div>
             <div><label>密码/Password：</label><input type="password" name="password"/></div>
@@ -49,7 +49,6 @@
         </div>
     </form>
 </div>
-<jsp:include page="common/write.jsp"></jsp:include>
 <jsp:include page="common/footer.jsp"></jsp:include>
 
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>

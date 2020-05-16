@@ -29,6 +29,6 @@ body{color: #363636}
 .subitem_contact_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
 #subitem_contact img{width: 95%;}
 
-.subitem_summary_title{padding: 10px;font-size: 30px;text-decoration: none;color: #07558c;}
+.subitem_summary_title{padding: 10px;font-size: 30px;text-decoration: none;color: #07558c;word-break: break-all;}
 .subitem_summary_content{padding: 10px;width: 80%;word-break: break-all;}
 

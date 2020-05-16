@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-<jsp:include page="common/write.jsp"></jsp:include>
+
 <jsp:include page="common/footer.jsp"></jsp:include>
 
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>

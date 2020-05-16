@@ -1,20 +1,20 @@
 package com.controller;
 
-import com.entity.Article;
-import com.service.ArticleService;
+import com.entity.Message;
+import com.service.MessageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/article")
-public class ArticleController extends BaseController{
+@RequestMapping("/message")
+public class MessageController extends BaseController{
 	@Resource
-	private ArticleService articleService;
-
-	@RequestMapping("/addArticle")
-	public String addArticle(Article article){
+	private MessageService messageService;
+	//添加留言
+	@RequestMapping("addMessage")
+	public String addMessage(Message message){
 		//验证登录
 		if (this.getSession().getAttribute("userid") == null){
 			this.getSession().setAttribute("message","请先登录");
@@ -22,11 +22,12 @@ public class ArticleController extends BaseController{
 		}
 
 		String userid = (String) this.getSession().getAttribute("userid");
-		article.setUserid(userid);
-		if(articleService.addArticle(article)==1){
-			System.out.println("添加文章成功");
-			this.getSession().setAttribute("message","添加文章成功");
+		message.setUserid(userid);
+		if(messageService.addMessage(message)==1){
+			System.out.println("添加留言成功");
+			this.getSession().setAttribute("message","添加留言成功");
 		}
 		return ("response/message");
+
 	}
 }

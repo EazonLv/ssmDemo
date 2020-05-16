@@ -30,8 +30,15 @@ public class IndexController extends BaseController{
 		return "userHome";
 	}
 
-	@RequestMapping("register")
+	@RequestMapping("/register")
 	public String indexRegister(){return "userRegister";}
+
+
+	@RequestMapping("/showMessage")
+	public String indexToMessage(){return "message";}
+
+	@RequestMapping("/addArticle")
+	public String indexToAddArticle(){return "addArticle";}
 
 	/**
 	 * 首页方法：通过userid查找用户名并列在articleAndWriters表中

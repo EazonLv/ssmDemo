@@ -1,6 +1,6 @@
 $("#subheader").html("a small but exquisite website")
 
-$(".copyright").text("Copyright © Eazon Lv from 2018.8")
+$(".copyright").text("Copyright © Eazon Lv from 2020.5")
 
 $(".header").css("color","#fcfa")
 

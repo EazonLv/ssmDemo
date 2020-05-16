@@ -60,8 +60,8 @@
                 <div>Menu</div>
             </div>
             <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
-                <li class="_items" id="article_write"><a  href="#">写博文</a></li>
-                <li class="_items" id="daily_write"><a  href="#">写日志</a></li>
+                <li class="_items"><a  href="/index/addArticle">写博文</a></li>
+                <li class="_items"><a  href="#">写日志</a></li>
                 <li class="_items"><a  href="/user/logout">退出</a></li>
             </ul>
         </ul>

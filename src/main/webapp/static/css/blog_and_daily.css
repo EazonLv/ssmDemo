@@ -44,7 +44,7 @@ html{height: 100%}
 
 /*position: fixed;margin:auto;left:0; right:0; top:0; bottom:0;*//*这是使fixed的div居中*/
 
-.write_textarea_article{display:none;position: fixed;margin:auto;left:0; right:0; top:0; bottom:0;height: 650px;width: 90%;background: rgba(205,233,246,0.8);border-radius: 10px;}
+.write_textarea_article{position: fixed;margin:auto;left:0; right:0; top:0; bottom:0;height: 650px;width: 90%;background: rgba(205,233,246,0.8);border-radius: 10px;}
 .write_textarea_article_cross{font-size: 50px;text-align: right;color: #999999;position: relative;top: -15px;right: 5px;cursor: pointer;}
 .write_textarea_article label{}
 .write_textarea_article_title{text-align: center}
