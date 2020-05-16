@@ -35,7 +35,7 @@ public class UserController extends BaseController{
 			userService.addUser(user);
 			System.out.println("注册用户成功");
 			this.getSession().setAttribute("message", "注册用户成功");
-			return "response/message";
+			return "response/returnToHome";
 		}
 
 	}
@@ -61,7 +61,7 @@ public class UserController extends BaseController{
 		this.getSession().removeAttribute("username");
 		this.getSession().removeAttribute("users");
 		this.getSession().setAttribute("message", "已退出");
-		return "redirect:/index/home";
+		return "response/returnToHome";
 	}
 
 	//登录
@@ -81,7 +81,8 @@ public class UserController extends BaseController{
 				this.getSession().setAttribute("userid", user.getUserid());
 				this.getSession().setAttribute("username", user.getUsername());
 				this.getSession().setAttribute("user", user);
-				return "redirect:/index/home";
+				this.getSession().setAttribute("message", "登录成功");
+				return "response/returnToHome";
 			} else {
 				this.getSession().setAttribute("message", "密码错误");
 				return "response/message";

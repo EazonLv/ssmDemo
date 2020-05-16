@@ -19,7 +19,8 @@ public class ArticleController extends BaseController{
 		article.setUserid(userid);
 		if(articleService.addArticle(article)==1){
 			System.out.println("添加文章成功");
+			this.getSession().setAttribute("message","添加文章成功");
 		}
-		return ("redirect:/index/home");
+		return ("response/message");
 	}
 }

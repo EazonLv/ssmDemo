@@ -61,7 +61,7 @@
                 alert("内容不能为空！");
                 return false;
             }
-            if(title != "" && title != null && content != "" && content != null){
+            if('<%request.getAttribute("sign");%>' == 1){
                 alert("恭喜提交成功！");
                 location.reload();
             }

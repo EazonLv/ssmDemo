@@ -12,8 +12,8 @@
 </head>
 <body>
 <script language="JavaScript">
-    window.history.back(-1);
-    location.reload();
+    //返回前页并刷新
+    self.location=document.referrer;
 </script>
 </body>
 </html>

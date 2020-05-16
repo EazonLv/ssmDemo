@@ -45,7 +45,7 @@
         <div class="login_input">
             <div><label id="ID">用户名/ID：</label><input type="text" name="username"/></div>
             <div><label>密码/Password：</label><input type="password" name="password"/></div>
-            <div><button type="submit" id="login_button" style="cursor: pointer">注册/Register</button></div>
+            <div><button type="submit" id="register_button" style="cursor: pointer">注册/Register</button></div>
         </div>
     </form>
 </div>
@@ -56,6 +56,25 @@
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
 <script src="${path}/static/js/home.js" type="text/javascript"></script>
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $("#register_button").click(function () {
+       var username = $("input[name='username']").val();
+       var password = $("input[name='password']").val();
+       if (username == "" || username ==null){
+           alert("用户名不能为空");
+           return false;
+       }
+        if (password == "" || password ==null){
+            alert("密码不能为空");
+            return false;
+        }
+        <%--if('<%request.getAttribute("sign");%>' == 1){--%>
+           <%--alert("恭喜注册成功");--%>
+           <%--location.reload();--%>
+        <%--}--%>
+
+    })
+</script>
 
 </body>
 </html>

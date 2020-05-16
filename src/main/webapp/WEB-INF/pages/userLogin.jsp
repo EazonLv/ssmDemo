@@ -56,5 +56,24 @@
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
 <script src="${path}/static/js/home.js" type="text/javascript"></script>
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $("#login_button").click(function () {
+        var username = $("input[name='username']").val();
+        var password = $("input[name='password']").val();
+        if (username == "" || username ==null){
+            alert("用户名不能为空");
+            return false;
+        }
+        if (password == "" || password ==null){
+            alert("密码不能为空");
+            return false;
+        }
+        <%--if('<%request.getAttribute("sign");%>' == 1){--%>
+            <%--alert("恭喜登录成功");--%>
+            <%--location.reload();--%>
+        <%--}--%>
+        //在response/message中显示登录成功
+    })
+</script>
 </body>
 </html>
