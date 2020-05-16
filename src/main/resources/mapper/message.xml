@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.MessageDao">
+    <resultMap id="messageMap" type="com.entity.Message">
+        <id property="messageid" column="messageid" />
+        <result property="message" column="message"/>
+        <result property="userid" column="userid"/>
+        <result property="username" column="username"/>
+        <result property="messagetime" column="messagetime"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addMessage" parameterType="com.entity.Message">
+		insert into t_messages(messageid , message , userid ,username , messagetime) values(#{messageid} , #{message} ,
+		#{userid} , #{username} , #{messagetime})
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateMessageInfo" parameterType="com.entity.Message">
+		update t_messages set message=#{message} , userid=#{userid} , username=#{username} ,messagetime=#{messagetime}
+		where
+		messageid=#{messageid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteMessage" parameterType="String">
+		delete from t_messages where
+		messageid = #{messageid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllMessage" resultMap="messageMap">
+		select * from t_messages
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findMessageByCondition" parameterType="com.entity.Message"
+            resultMap="messageMap">
+        select * from t_messages a where 1=1
+        <if test="messageid != null and '' != messageid">
+            and messageid = #{messageid}
+        </if>
+        <if test="message != null and '' != message">
+            and message = #{message}
+        </if>
+        <if test="userid != null and '' != userid">
+            and userid = #{userid}
+        </if>
+        <if test="username != null and '' != username">
+            and username = #{username}
+        </if>
+        <if test="messagetime != null and '' != messagetime">
+            and messagetime = #{messagetime}
+        </if>
+    </select>
+</mapper>

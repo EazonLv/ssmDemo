@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.MsgleavewordDao">
+    <resultMap id="msgleavewordMap" type="com.entity.Msgleaveword">
+        <id property="msgleavewordid" column="msgleavewordid" />
+        <result property="leaveword" column="leaveword"/>
+        <result property="userid" column="userid"/>
+        <result property="username" column="username"/>
+        <result property="messageid" column="messageid"/>
+        <result property="msgleavewordtime" column="msgleavewordtime"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addMsgleaveword" parameterType="com.entity.Msgleaveword">
+		insert into t_msgleavewords(msgleavewordid , leaveword , userid ,username , messageid , msgleavewordtime) values(#{msgleavewordid} , #{leaveword} ,
+		#{userid} , #{username} , #{messageid} , #{msgleavewordtime})
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateMsgleavewordInfo" parameterType="com.entity.Msgleaveword">
+		update t_msgleavewords set leaveword=#{leaveword} , userid=#{userid} , username=#{username} , messageid=#{messageid} ,msgleavewordtime=#{msgleavewordtime}
+		where
+		msgleavewordid=#{msgleavewordid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteMsgleaveword" parameterType="String">
+		delete from t_msgleavewords where
+		msgleavewordid = #{msgleavewordid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllMsgleaveword" resultMap="msgleavewordMap">
+		select * from t_msgleavewords
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findMsgleavewordByCondition" parameterType="com.entity.Msgleaveword"
+            resultMap="msgleavewordMap">
+        select * from t_msgleavewords a where 1=1
+        <if test="msgleavewordid != null and '' != msgleavewordid">
+            and msgleavewordid = #{msgleavewordid}
+        </if>
+        <if test="leaveword != null and '' != leaveword">
+            and leaveword = #{leaveword}
+        </if>
+        <if test="userid != null and '' != userid">
+            and userid = #{userid}
+        </if>
+        <if test="username != null and '' != username">
+            and username = #{username}
+        </if>
+        <if test="messageid != null and '' != messageid">
+            and messageid = #{messageid}
+        </if>
+
+        <if test="msgleavewordtime != null and '' != msgleavewordtime">
+            and msgleavewordtime = #{msgleavewordtime}
+        </if>
+    </select>
+</mapper>

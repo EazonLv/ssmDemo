@@ -1,7 +1,11 @@
 package com.test;
 
 import com.dao.ArticleDao;
+import com.dao.MessageDao;
+import com.dao.MsgleavewordDao;
 import com.entity.Article;
+import com.entity.Message;
+import com.entity.Msgleaveword;
 import com.util.ArticleAndWriter;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -30,6 +34,21 @@ public class MybatisTest {
 		//创建session对象
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		//获取代理对象
+
+
+		MsgleavewordDao msgleavewordDao = sqlSession.getMapper(MsgleavewordDao.class);
+		List<Msgleaveword> msgleavewordList = msgleavewordDao.findAllMsgleaveword();
+		for(Msgleaveword m:msgleavewordList){
+			System.out.println(m);
+		}
+
+//		MessageDao messageDao = sqlSession.getMapper(MessageDao.class);
+//		List<Message> messageList = messageDao.findAllMessage();
+//		for (Message m:messageList){
+//			System.out.println(m);
+//		}
+
+
 //		UserDao userDao = sqlSession.getMapper(UserDao.class);
 //		//调用对象相关方法
 //
@@ -44,7 +63,7 @@ public class MybatisTest {
 //		u.setPassword("123");
 //		u.setUserid("A20200511004937285");
 
-		ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
+//		ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
 //		Article article = new Article();
 //		article.setUserid("A20200511004937285");
 //		System.out.println(articleDao.findWriter(article));
