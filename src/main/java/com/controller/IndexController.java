@@ -35,10 +35,13 @@ public class IndexController extends BaseController{
 
 
 	@RequestMapping("/showMessage")
-	public String indexToMessage(){return "message";}
+	public String indexToMessage(){return "redirect:/message/showAllMessages";}
 
 	@RequestMapping("/addArticle")
 	public String indexToAddArticle(){return "addArticle";}
+
+	@RequestMapping("/addMessage")
+	public String indexToAddMessage(){return "addMessage";}
 
 	/**
 	 * 首页方法：通过userid查找用户名并列在articleAndWriters表中

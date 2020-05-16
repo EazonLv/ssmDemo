@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>addArticle</title>
+    <title>addMessage</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
@@ -47,13 +47,10 @@
 
 <div class="login no_select">
     <div class="login_bg1">
-        <form action="/article/addArticle" method="post" class="">
-            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加博文：</div>
-            <div class="write_textarea_article_title">
-                <input type="text" id="write_textarea_article_title" name="title" placeholder="键入标题 / Enter Title">
-            </div>
+        <form action="/message/addMessage" method="post" class="">
+            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加留言：</div>
             <div class="write_textarea_article_content">
-                <textarea id="write_textarea_article_content" name="content" placeholder="键入正文 / Enter Content"></textarea>
+                <textarea style="border-radius: 10px;" id="write_textarea_article_content" name="message" placeholder="键入留言 / Enter Message"></textarea>
             </div>
             <div class="write_textarea_article_button"><button type="submit" style="margin: 10px;">提交 / Submit</button></div>
         </form>
@@ -69,15 +66,11 @@
 <script type="text/javascript">
     $(".write_textarea_article_button button:last-child").click(
         function () {
-            var title = $("#write_textarea_article_title").val();
             var content = $("#write_textarea_article_content").val();
 
-            if(title == "" || title ==null){
-                alert("标题不能为空！");
-                return false;
-            }
+
             if(content == "" || content ==null){
-                alert("内容不能为空！");
+                alert("留言内容不能为空！");
                 return false;
             }
         }

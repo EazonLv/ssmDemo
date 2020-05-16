@@ -54,7 +54,7 @@
         </a>
     </c:if>
     <c:if test="${sessionScope.userid != null}">
-        <ul class="items" href="" id="userMenu" style="cursor:pointer;">
+        <ul class="items" href="#" id="userMenu" style="cursor:pointer;">
             <div>
                 <div>用户菜单</div>
                 <div>Menu</div>
@@ -62,6 +62,7 @@
             <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
                 <li class="_items"><a  href="/index/addArticle">写博文</a></li>
                 <li class="_items"><a  href="#">写日志</a></li>
+                <li class="_items"><a  href="/index/addMessage">写留言</a></li>
                 <li class="_items"><a  href="/user/logout">退出</a></li>
             </ul>
         </ul>
@@ -74,7 +75,7 @@
         <div>博客日记</div>
         <div>Blog & Daily</div>
     </a>
-    <a class="items" href="">
+    <a class="items" href="/index/showMessage">
         <div>留言</div>
         <div>Message</div>
     </a>

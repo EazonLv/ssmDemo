@@ -1,7 +1,9 @@
 package com.entity;
 
+import com.util.VeDate;
+
 public class Message {
-	private String messageid;
+	private String messageid = "MSG"+VeDate.getStringId();
 	private String message;
 	private String userid;
 	private String username;

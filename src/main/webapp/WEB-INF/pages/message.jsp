@@ -23,7 +23,8 @@
         .content_1 > div{display: inline-block;margin: 20px;}
         .message_content_float_box{position: relative;border-radius: 15px;display: inline-block;background-color: rgba(255,255,255,0.6);border: 2px solid transparent;padding: 15px;cursor: pointer;}
         .message_content_float_box span:first-child{font-family: 幼圆;color: black;}
-        .message_content_float_box span:last-child{font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;}
+        .message_content_float_box span:nth-child(2){font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
+        .message_content_float_box span:last-child{font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
 
     </style>
 </head>
@@ -32,30 +33,13 @@
 
 <div class="content1">
     <div class="content_1">
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
-        <div><div class="message_content_float_box"><span>留言留言留言留言留言留言留言留言</span><span>from XXX</span></div></div>
+        <c:forEach items="${messageList}" var="message">
+            <div class="message_content_float_box">
+                <span>${message.message}</span>
+                <span>${message.messagetime}</span>
+                <span>from ${message.username}</span>
+            </div>
+        </c:forEach>
     </div>
 </div>
 
