@@ -19,13 +19,10 @@ public class UserController extends BaseController{
 	private UserService userService;
 
 	//添加用户
-	@RequestMapping("/addUser")
-	public String addUser(User user){
+	@RequestMapping("/registerUser")
+	public String registerUser(User user){
 //		System.out.println("已增加新用户");
-		//验证登录
-		if (this.getSession().getAttribute("userid") == null){ return "reLogin"; }
 
-		String password = this.getRequest().getParameter("password");
 		String username = this.getRequest().getParameter("username");
 
 		User u = new User();
@@ -35,27 +32,27 @@ public class UserController extends BaseController{
 			this.getSession().setAttribute("message", "用户名已存在");
 			return "response/message";
 		}else{
-			user.setUsername(username);
-			user.setPassword(password);
 			userService.addUser(user);
+			System.out.println("注册用户成功");
+			this.getSession().setAttribute("message", "注册用户成功");
 			return "response/message";
 		}
 
 	}
 
 	//查找所有用户
-	@RequestMapping("/findAllUsers")
-	public String findAllUsers(Model model){
-		//验证登录
-		if (this.getSession().getAttribute("userid") == null){ return "reLogin"; }
-
-		List<User> userList = userService.findAllUsers();
-		for (User user:userList){
-			System.out.println(user);
-		}
-		model.addAttribute("list",userList);
-		return "allUsers";
-	}
+//	@RequestMapping("/findAllUsers")
+//	public String findAllUsers(Model model){
+//		//验证登录
+//		if (this.getSession().getAttribute("userid") == null){ return "userLogin"; }
+//
+//		List<User> userList = userService.findAllUsers();
+//		for (User user:userList){
+//			System.out.println(user);
+//		}
+//		model.addAttribute("list",userList);
+//		return "allUsers";
+//	}
 
 	//退出登录
 	@RequestMapping("/logout")
@@ -64,7 +61,7 @@ public class UserController extends BaseController{
 		this.getSession().removeAttribute("username");
 		this.getSession().removeAttribute("users");
 		this.getSession().setAttribute("message", "已退出");
-		return "redirect:/index/test";
+		return "redirect:/index/home";
 	}
 
 	//登录
@@ -84,7 +81,7 @@ public class UserController extends BaseController{
 				this.getSession().setAttribute("userid", user.getUserid());
 				this.getSession().setAttribute("username", user.getUsername());
 				this.getSession().setAttribute("user", user);
-				return "redirect:/index/test";
+				return "redirect:/index/home";
 			} else {
 				this.getSession().setAttribute("message", "密码错误");
 				return "response/message";

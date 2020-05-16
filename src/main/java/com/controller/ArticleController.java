@@ -14,18 +14,12 @@ public class ArticleController extends BaseController{
 	private ArticleService articleService;
 
 	@RequestMapping("/addArticle")
-	public String addArticle(){
-		String title = this.getRequest().getParameter("a_title");
-		String content = this.getRequest().getParameter("a_content");
+	public String addArticle(Article article){
 		String userid = (String) this.getSession().getAttribute("userid");
-
-		Article article = new Article();
 		article.setUserid(userid);
-		article.setTitle(title);
-		article.setContent(content);
-		if (articleService.addArticle(article) == 1){
-			System.out.println("成功了");
+		if(articleService.addArticle(article)==1){
+			System.out.println("添加文章成功");
 		}
-		return ("response/return");
+		return ("redirect:/index/home");
 	}
 }

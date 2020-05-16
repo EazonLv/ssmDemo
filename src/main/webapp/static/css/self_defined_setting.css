@@ -1,4 +1,4 @@
-@font-face {/* font-properties */font-family: RBNo2;src:url('../font/RBNo2Light.otf'),url('../font/RBNo2Light_a.otf');}
+@font-face {/* font-properties */font-family: RBNo2;src:url('./RBNo2Light.otf'),url('./RBNo2Light_a.otf');}
 @font-face {/* font-properties */font-family: OstrichSans-Black;src:url('../font/OstrichSans-Black.otf');}
 @font-face {/* font-properties */font-family: OstrichSans-Regular;src:url('../font/OstrichSansInline-Regular.otf');}
 @font-face {/* font-properties */font-family: OstrichSans-Medium;src:url('../font/OstrichSansDashed-Medium.otf');}

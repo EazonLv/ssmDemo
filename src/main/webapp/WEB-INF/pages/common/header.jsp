@@ -34,19 +34,23 @@
     </style>
 </head>
 <body>
-<div class="navi" style="z-index: 99999">
+<div class="navi">
     <div class="header_main_page">
         <div id="heaher">My Blog</div>
         <div id="subheader" class="subheader_main_page"></div>
     </div>
-    <a class="items" href="">
+    <a class="items" href="/index/home">
         <div>首页</div>
         <div>Home</div>
     </a>
     <c:if test="${sessionScope.userid == null}">
-        <a class="items" href="">
+        <a class="items" href="/index/login">
             <div>登录</div>
             <div>Login</div>
+        </a>
+        <a class="items" href="/index/register">
+            <div>注册</div>
+            <div>Register</div>
         </a>
     </c:if>
     <c:if test="${sessionScope.userid != null}">

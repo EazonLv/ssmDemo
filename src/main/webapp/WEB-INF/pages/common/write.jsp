@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/blog_and_daily.css">
     <style type="text/css">
-        #write_textarea_article_writer{width: 80%;border: none;padding: 10px;border-bottom: 2px solid rgba(153,153,153,0.7);background: #CFCFE7;}
-        #write_textarea_article_writer:focus{outline: none;}
         .write_textarea_article_button button{padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #108ee9;cursor: pointer;color: #dddddd;font-size: 15px;}
     </style>
 </head>
@@ -27,10 +25,10 @@
         <form action="/article/addArticle" method="post" class="write_textarea_article">
             <div><span class="write_textarea_article_cross">×</span></div>
             <div class="write_textarea_article_title">
-                <input type="text" id="write_textarea_article_title" name="a_title" placeholder="键入标题 / Enter Title">
+                <input type="text" id="write_textarea_article_title" name="title" placeholder="键入标题 / Enter Title">
             </div>
             <div class="write_textarea_article_content">
-                <textarea id="write_textarea_article_content" name="a_content" placeholder="键入正文 / Enter Content"></textarea>
+                <textarea id="write_textarea_article_content" name="content" placeholder="键入正文 / Enter Content"></textarea>
             </div>
             <div class="write_textarea_article_button"><button type="submit">提交 / Submit</button></div>
         </form>
@@ -49,6 +47,28 @@
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
 <script src="${path}/static/js/blog_and_daily.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(".write_textarea_article_button button:last-child").click(
+        function () {
+            var title = $("#write_textarea_article_title").val();
+            var content = $("#write_textarea_article_content").val();
+
+            if(title == "" || title ==null){
+                alert("标题不能为空！");
+                return false;
+            }
+            if(content == "" || content ==null){
+                alert("内容不能为空！");
+                return false;
+            }
+            if(title != "" && title != null && content != "" && content != null){
+                alert("恭喜提交成功！");
+                location.reload();
+            }
+
+        }
+    )
+</script>
 </body>
 </html>
 

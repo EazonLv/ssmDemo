@@ -1,7 +1,3 @@
-
-
-$(".aside").html("<div>首页 home</div><div>关于我 about me</div><div>博客日记 blog & daily</div><div>留言 message</div><div>友情链接 link</div>")
-
 $("#subheader").html("a small but exquisite website")
 
 $(".copyright").text("Copyright © Eazon Lv from 2018.8")

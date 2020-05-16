@@ -13,6 +13,7 @@
 <body>
 <script language="JavaScript">
     window.history.back(-1);
+    location.reload();
 </script>
 </body>
 </html>

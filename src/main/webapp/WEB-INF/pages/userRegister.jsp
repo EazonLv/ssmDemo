@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>userLogin</title>
+    <title>userRegister</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
@@ -41,11 +41,11 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="login no_select">
-    <form class="login_bg" method="post" action="/user/login">
+    <form class="login_bg" method="post" action="/user/registerUser">
         <div class="login_input">
             <div><label id="ID">用户名/ID：</label><input type="text" name="username"/></div>
             <div><label>密码/Password：</label><input type="password" name="password"/></div>
-            <div><button type="submit" id="login_button" style="cursor: pointer">登录/Login</button></div>
+            <div><button type="submit" id="login_button" style="cursor: pointer">注册/Register</button></div>
         </div>
     </form>
 </div>
@@ -56,5 +56,6 @@
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
 <script src="${path}/static/js/home.js" type="text/javascript"></script>
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.test;
 
 import com.dao.ArticleDao;
 import com.entity.Article;
+import com.util.ArticleAndWriter;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +11,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MybatisTest {
@@ -42,11 +45,29 @@ public class MybatisTest {
 //		u.setUserid("A20200511004937285");
 
 		ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
-		Article article = new Article();
-		article.setUserid("A20200511004937285");
-		System.out.println(articleDao.findWriter(article));
-		Article article2 = (Article) articleDao.findWriter(article).get(0);
-		System.out.println(article2.getUser().getUsername());
+//		Article article = new Article();
+//		article.setUserid("A20200511004937285");
+//		System.out.println(articleDao.findWriter(article));
+//		Article article2 = (Article) articleDao.findWriter(article).get(0);
+//		System.out.println(article2.getUser().getUsername());
+//		List<Article> articleList = articleDao.findAllArticle();
+////		System.out.println(articleList);
+//		List<String> username = new ArrayList<String>();
+////		通过userid查找用户名并列在username表中
+//		for(int i=0;i<articleList.size();i++){
+//			Article article1 = new Article();
+//			article1.setUserid(articleList.get(i).getUserid());
+//			Article article2 = (Article)articleDao.findWriter(article1).get(0);
+//			username.add(article2.getUser().getUsername());
+//		}
+//		List<ArticleAndWriter> articleAndWriters = new ArrayList<ArticleAndWriter>();
+//		for(int i=0;i<articleList.size();i++){
+//			ArticleAndWriter aaw = new ArticleAndWriter(articleList.get(i).getTitle(),articleList.get(i).getContent(),username.get(i));
+//			articleAndWriters.add(aaw);
+//		}
+//		System.out.println(articleAndWriters);
+
+
 
 
 //		List<User> userList = userDao.findAllUsers();

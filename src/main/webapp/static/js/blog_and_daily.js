@@ -246,13 +246,6 @@ $(".write_textarea_article_button button").hover(
     }
 )
 
-$(".write_textarea_article_button button:last-child").click(
-    function () {
-        alert("恭喜提交成功！")
-        $(".write_textarea_article").css("display","none")
-        $(".write_textarea_daily").css("display","none")
-    }
-)
 
 $(".write_textarea_article_button span").hover(
     function () {

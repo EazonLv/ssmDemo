@@ -17,6 +17,7 @@
 <script language="javascript">
     alert("<%=request.getSession().getAttribute("message")%>")
     window.history.back(-1);
+    location.reload();
 
 </script>
 </html>
