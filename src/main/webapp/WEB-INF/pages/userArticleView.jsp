@@ -1,4 +1,4 @@
-pe<%--
+<%--
   Created by IntelliJ IDEA.
   User: lenovo
   Date: 2020/5/13
@@ -11,11 +11,12 @@ pe<%--
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>addArticle</title>
+    <title>userArticleView</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
     <link rel="stylesheet" href="${path}/static/css/blog_and_daily.css">
+
     <style>
         /*实现背景大小随窗口变化而变化*/
         html{height: 100%;}
@@ -39,26 +40,28 @@ pe<%--
         .write_textarea_article_button button{padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #108ee9;cursor: pointer;color: #dddddd;font-size: 15px;}
 
         .login_bg1{background-color: rgba(255,255,255,0.6);padding: 25px;}
-
     </style>
 </head>
 <body class="bg_image_main no_select">
 <jsp:include page="common/header.jsp"></jsp:include>
 
+
 <div class="login no_select">
     <div class="login_bg1">
-        <form action="/article/addArticle" method="post" class="">
-            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加博文：</div>
+        <form action="/article/updateArticle" method="post" class="">
+            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">更新博文：</div>
             <div class="write_textarea_article_title">
-                <input type="text" id="write_textarea_article_title" name="title" placeholder="键入标题 / Enter Title">
+                <input type="text" id="write_textarea_article_title" name="title" value="${article.title}">
             </div>
             <div class="write_textarea_article_content">
-                <textarea id="write_textarea_article_content" name="content" placeholder="键入正文 / Enter Content"></textarea>
+                <textarea id="write_textarea_article_content" name="content">${article.content}</textarea>
             </div>
-            <div class="write_textarea_article_button"><button type="submit" style="margin: 10px;">提交 / Submit</button></div>
+            <div class="write_textarea_article_button"><button type="submit" style="margin: 10px;">更新 / Update</button></div>
+            <%--<div class="write_textarea_article_button"><button type="button" style="margin: 10px;"  onclick="location.href='/article/updateArticle'">更新 / Update</button></div>--%>
         </form>
     </div>
 </div>
+
 <jsp:include page="common/footer.jsp"></jsp:include>
 
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
@@ -67,6 +70,8 @@ pe<%--
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
 <script src="${path}/static/js/blog_and_daily.js" type="text/javascript"></script>
 <script type="text/javascript">
+
+    //判空
     $(".write_textarea_article_button button:last-child").click(
         function () {
             var title = $("#write_textarea_article_title").val();
@@ -84,6 +89,16 @@ pe<%--
     )
 
     $(".login_bg1 input").attr("autocomplete","off");
+
+    //判断输入框是否有变化以此改变按钮是否可用
+    window.onload = function (ev) {
+        var title = $("#write_textarea_article_title").val();
+        var content = $("#write_textarea_article_content").val();
+
+
+    }
 </script>
+
+
 </body>
 </html>
