@@ -15,6 +15,13 @@ public class ArticleController extends BaseController{
 	@Resource
 	private ArticleService articleService;
 
+	@RequestMapping("showAllArticles")
+    public String showAllArticles(Model model){
+	    List<Object> objects = reverseList(articleService.findAllArticle());
+	    model.addAttribute("articles",objects);
+	    return "article";
+    }
+
 	@RequestMapping("/addArticle")
 	public String addArticle(Article article){
 		//验证登录
@@ -45,8 +52,9 @@ public class ArticleController extends BaseController{
 		article.setUserid(userid);
 		article.setArticleid("");
 		List<Article> articles= articleService.findArticleByCondition(article);
+		List<Object> objects = reverseList(articles);
 		if (articles!=null){
-			model.addAttribute("articles",articles);
+			model.addAttribute("articles",objects);
 		}
 		return "userArticle";
 	}
@@ -77,16 +85,15 @@ public class ArticleController extends BaseController{
             return "response/returnToLogin";
         }
 
-        String userid = (String) this.getSession().getAttribute("userid");
-        article.setUserid(userid);
+
         if(articleService.updateArticle(article)==1){
             System.out.println("更新文章成功");
             this.getSession().setAttribute("message","更新文章成功");
-            return "response/message";
         }
         else {
-            return "response/return";
+            this.getSession().setAttribute("message","更新文章失败");
         }
+        return "response/returnToUserArticle";
 
     }
 }

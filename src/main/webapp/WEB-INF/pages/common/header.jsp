@@ -60,9 +60,8 @@
                 <div>Menu</div>
             </div>
             <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
-                <li class="_items"><a  href="/index/addArticle">写博文</a></li>
-                <li class="_items"><a  href="#">写日志</a></li>
-                <li class="_items"><a  href="/index/addMessage">写留言</a></li>
+                <li class="_items"><a  href="/article/showUserArticle">我的博文</a></li>
+                <li class="_items"><a  href="/message/showUserMessage">我的留言</a></li>
                 <li class="_items"><a  href="/user/logout">退出</a></li>
             </ul>
         </ul>
@@ -71,9 +70,9 @@
         <div>相册</div>
         <div>Album</div>
     </a>
-    <a class="items" href="">
-        <div>博客日记</div>
-        <div>Blog & Daily</div>
+    <a class="items" href="/article/showAllArticles">
+        <div>博文</div>
+        <div>Article</div>
     </a>
     <a class="items" href="/index/showMessage">
         <div>留言</div>

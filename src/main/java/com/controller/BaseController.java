@@ -10,6 +10,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class BaseController {
@@ -38,5 +40,19 @@ public class BaseController {
 		HttpSession session = null;
 		session = this.getRequest().getSession();
 		return session;
+	}
+
+	/**
+	 * 实现表逆序的通用方法
+	 * @param list
+	 * @return
+	 */
+
+	public List<Object> reverseList(List<?> list){
+		List<Object> objects = new ArrayList<Object>();
+		for (int i=0;i<list.size();i++){
+			objects.add(list.get(list.size()-i-1));
+		}
+		return objects;
 	}
 }

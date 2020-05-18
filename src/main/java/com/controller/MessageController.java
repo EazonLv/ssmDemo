@@ -44,4 +44,25 @@ public class MessageController extends BaseController{
 		model.addAttribute("messageList",messageList);
 		return "message";
 	}
+
+	@RequestMapping("/showUserMessage")
+	public String showUserMessage(Message message,Model model){
+		//验证登录
+		if (this.getSession().getAttribute("userid") == null){
+			this.getSession().setAttribute("message","请先登录");
+			return "response/returnToLogin";
+		}
+
+
+		String userid = (String) this.getSession().getAttribute("userid");
+		message.setUserid(userid);
+		message.setMessageid("");
+		List<Message> messages= messageService.findMessageByCondition(message);
+		List<Object> objects = reverseList(messages);
+		if (messages!=null){
+			model.addAttribute("messages",objects);
+		}
+		return "userMessage";
+	}
+
 }

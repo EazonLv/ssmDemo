@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>userArticle</title>
+    <title>article</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
@@ -46,12 +46,12 @@
 
 
 <div class="content">
-    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的博文：<div style="text-align: right;"><div  class="article_write"  style="text-align: center"><a href="/index/addArticle" style="text-decoration: none;color: #363636;">写博文</a></div></div></div>
+    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">所有博文：</div>
 
     <c:forEach items="${articles}" var="a">
         <div class="subitem_summary" style="cursor: pointer">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
-                <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="/article/showUserArticleView?articleid=${a.articleid}">标题：${a.title}</a>
+                <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">标题：${a.title}</a>
                 <div style="background-color: transparent" class="subitem_summary_content">${a.content}</div>
             </div>
         </div>

@@ -56,7 +56,9 @@
             <div class="write_textarea_article_content">
                 <textarea id="write_textarea_article_content" name="content" onchange="isChange()">${article.content}</textarea>
             </div>
-            <div class="write_textarea_article_button"><button type="submit" id="s_button" style="margin: 10px;" disabled="disabled">更新 / Update</button></div>
+            <input type="hidden" name="articleid" value="${article.articleid}"/>
+            <input type="hidden" name="userid" value="${article.userid}"/>
+            <div class="write_textarea_article_button" ><button type="submit" id="s_button" style="margin: 10px; background: #777777;cursor: no-drop;" disabled="disabled">更新 / Update</button></div>
             <%--<div class="write_textarea_article_button"><button type="button" style="margin: 10px;"  onclick="location.href='/article/updateArticle'">更新 / Update</button></div>--%>
         </form>
     </div>
@@ -98,6 +100,12 @@
 
         if(title__!= title_ || content__!=content_){
             $("#s_button").removeAttr("disabled")
+            $("#s_button").css("background","#108ee9")
+            $("#s_button").css("cursor","pointer")
+        }else{
+            $("#s_button").attr("disabled","disabled")
+            $("#s_button").css("background","#777777")
+            $("#s_button").css("cursor","no-drop")
         }
     }
 </script>
