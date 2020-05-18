@@ -1,7 +1,9 @@
 package com.controller;
 
 import com.entity.Article;
+import com.entity.Message;
 import com.service.ArticleService;
+import com.service.MessageService;
 import com.util.ArticleAndWriter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -19,6 +19,8 @@ public class IndexController extends BaseController{
 
 	@Resource
 	private ArticleService articleService;
+	@Resource
+	private MessageService messageService;
 
 	@RequestMapping("/login")
 	public String indexLogin(){return "userLogin";}
@@ -27,6 +29,8 @@ public class IndexController extends BaseController{
 	public String indexHome(Model model){
 		List<ArticleAndWriter> articleAndWriters =  reverseAAW(articleSummary());
 		model.addAttribute("articleAndWriters",articleAndWriters);
+		List<Message> messages = reverseMessageList(messageService.findAllMessage());
+		model.addAttribute("messages",messages);
 		return "userHome";
 	}
 
@@ -74,5 +78,13 @@ public class IndexController extends BaseController{
 			articleAndWriters1.add(articleAndWriters.get(articleAndWriters.size()-i-1));
 		}
 		return articleAndWriters1;
+	}
+
+	public List<Message> reverseMessageList(List<Message> messageList){
+		List<Message> messageList1 = new ArrayList<Message>();
+		for(int i=0;i<messageList.size();i++){
+			messageList1.add(messageList.get(messageList.size()-i-1));
+		}
+		return messageList1;
 	}
 }

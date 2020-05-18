@@ -20,30 +20,20 @@
     <div class="content">
         <div class="content_">
             <div class="left_content">
-                <div class="subitem_about_me">
-                    <h1 class="subitem_subheader" id="subitem_title_about_me">关于我 <span>·</span><span style="font-family: monospace">  About Me</span></h1>
-                    <div class="subitem_about_me_hr"></div>
-                    <div style="background-color: transparent;word-break: break-all;padding-left: 5px;padding-right: 5px;cursor: default;"><img src="${path}/static/img/my_photo.jpg" id="photo" style="float: left;">关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我关于我</div>
-                </div>
                 <div class="subitem_album">
                     <h1 class="subitem_subheader" id="subitem_title_album">相册 <span>·</span><span style="font-family: monospace">  Album</span></h1>
                     <div class="subitem_album_hr"></div>
                     <div style="background-color: transparent;padding-left: 5px;padding-right: 5px;" id="subitem_album"></div>
                 </div>
+                <c:forEach items="${messages}" var="message" begin="0" end="4">
                 <div class="subitem_message">
                     <h1 class="subitem_subheader" id="subitem_title_message">留言 <span>·</span><span style="font-family: monospace">  Messagee</span></h1>
                     <div class="subitem_message_hr"></div>
                     <div style="background-color: transparent;word-break: break-all;padding-left: 5px;padding-right: 5px;" id="subitem_message">
-                        <div>留言留言留言留言留言留言留言...<br/><span>from XXX</span></div>
+                        <div>${message.message}<br/><span>${message.messagetime}</span>&nbsp;&nbsp;<span>from ${message.username}</span></div>
                     </div>
                 </div>
-                <div class="subitem_contact">
-                    <h1 class="subitem_subheader">联系作者 <span>·</span><span style="font-family: monospace">  Contact</span></h1>
-                    <div class="subitem_contact_hr"></div>
-                    <div style="background-color: transparent;word-break: break-all;text-align: center" id="subitem_contact">
-                        <img src="${path}/static/img/qrcode_1534149589702.jpg" alt="">
-                    </div>
-                </div>
+                </c:forEach>
             </div>
             <div class="right_content">
                 <c:forEach items="${articleAndWriters}" var="a" begin="0" end="9">
