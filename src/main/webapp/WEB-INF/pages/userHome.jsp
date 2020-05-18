@@ -25,17 +25,20 @@
                     <div class="subitem_album_hr"></div>
                     <div style="background-color: transparent;padding-left: 5px;padding-right: 5px;" id="subitem_album"></div>
                 </div>
-                <c:forEach items="${messages}" var="message" begin="0" end="4">
+
                 <div class="subitem_message">
-                    <h1 class="subitem_subheader" id="subitem_title_message">留言 <span>·</span><span style="font-family: monospace">  Messagee</span></h1>
+                    <h1 class="subitem_subheader" id="subitem_title_message">留言 <span>·</span><span style="font-family: monospace">  Message</span></h1>
                     <div class="subitem_message_hr"></div>
                     <div style="background-color: transparent;word-break: break-all;padding-left: 5px;padding-right: 5px;" id="subitem_message">
-                        <div>${message.message}<br/><span>${message.messagetime}</span>&nbsp;&nbsp;<span>from ${message.username}</span></div>
+                        <c:forEach items="${messages}" var="message" begin="0" end="4">
+                            <div>${message.message}<br/><span>${message.messagetime}</span>&nbsp;&nbsp;<span>from ${message.username}</span></div>
+                        </c:forEach>
                     </div>
                 </div>
-                </c:forEach>
+
             </div>
             <div class="right_content">
+                <h1 class="subitem_subheader" style="text-align: center;padding-top: 10px;padding-bottom:10px;font-family: '幼圆';background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">博文 <span>·</span><span style="font-family: monospace">  Article</span></h1>
                 <c:forEach items="${articleAndWriters}" var="a" begin="0" end="9">
                     <div class="subitem_summary" style="cursor: pointer">
                         <div class="subitem_summary" style="cursor: pointer">
