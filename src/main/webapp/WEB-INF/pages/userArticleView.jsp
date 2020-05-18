@@ -51,12 +51,12 @@
         <form action="/article/updateArticle" method="post" class="">
             <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">更新博文：</div>
             <div class="write_textarea_article_title">
-                <input type="text" id="write_textarea_article_title" name="title" value="${article.title}">
+                <input type="text" id="write_textarea_article_title" name="title" value="${article.title}" onchange="isChange()">
             </div>
             <div class="write_textarea_article_content">
-                <textarea id="write_textarea_article_content" name="content">${article.content}</textarea>
+                <textarea id="write_textarea_article_content" name="content" onchange="isChange()">${article.content}</textarea>
             </div>
-            <div class="write_textarea_article_button"><button type="submit" style="margin: 10px;">更新 / Update</button></div>
+            <div class="write_textarea_article_button"><button type="submit" id="s_button" style="margin: 10px;" disabled="disabled">更新 / Update</button></div>
             <%--<div class="write_textarea_article_button"><button type="button" style="margin: 10px;"  onclick="location.href='/article/updateArticle'">更新 / Update</button></div>--%>
         </form>
     </div>
@@ -70,7 +70,8 @@
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
 <script src="${path}/static/js/blog_and_daily.js" type="text/javascript"></script>
 <script type="text/javascript">
-
+    var title_ = $("#write_textarea_article_title").val();
+    var content_ = $("#write_textarea_article_content").val();
     //判空
     $(".write_textarea_article_button button:last-child").click(
         function () {
@@ -91,11 +92,13 @@
     $(".login_bg1 input").attr("autocomplete","off");
 
     //判断输入框是否有变化以此改变按钮是否可用
-    window.onload = function (ev) {
-        var title = $("#write_textarea_article_title").val();
-        var content = $("#write_textarea_article_content").val();
+    function isChange() {
+        var title__ = $("#write_textarea_article_title").val();
+        var content__ = $("#write_textarea_article_content").val();
 
-
+        if(title__!= title_ || content__!=content_){
+            $("#s_button").removeAttr("disabled")
+        }
     }
 </script>
 
