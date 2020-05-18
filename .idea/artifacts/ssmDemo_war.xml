@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="ssmDemo:war">
-    <output-path>$PROJECT_DIR$/target/artifacts/ssmDemo_war</output-path>
-    <root id="archive" name="ssmDemo_war.war">
-      <element id="artifact" artifact-name="ssmDemo:war exploded" />
-    </root>
-  </artifact>
-</component>

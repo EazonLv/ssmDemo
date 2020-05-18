@@ -18,7 +18,7 @@
     <update id="updateArticle" parameterType="com.entity.Article">
 		update t_articles set title=#{title} , content=#{content} , userid = #{userid,jdbcType=VARCHAR}
 		where
-		userid=#{userid}
+		articleid=#{articleid}
 	</update>
     <!-- 按主键删除 DAO通过id调用此配置 -->
     <delete id="deleteArticle" parameterType="String">
