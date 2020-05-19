@@ -51,7 +51,7 @@
     <c:forEach items="${articles}" var="a">
         <div class="subitem_summary" style="cursor: pointer">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
-                <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="javascript:doPost('/article/showUserArticleView', {'articleid':'${a.articleid}'})">标题：${a.title}</a>
+                <a id="showDetail" style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="/article/showUserArticleView?articleid=${a.articleid}">标题：${a.title}</a>
                 <div style="background-color: transparent" class="subitem_summary_content">${a.content}</div>
             </div>
         </div>
@@ -73,20 +73,39 @@
         }
     )
 
-    function doPost(to, p) { // to:提交动作（action）,p:参数
-        var myForm = document.createElement("form");
-        myForm.method = "post";
-        myForm.action = to;
-        for (var i in p){
-            var myInput = document.createElement("input");
-            myInput.setAttribute("articleid", i); // 为input对象设置name
-            myInput.setAttribute("value", p[i]); // 为input对象设置value
-            myForm.appendChild(myInput);
-        }
-        document.body.appendChild(myForm);
-        myForm.submit();
-        document.body.removeChild(myForm); // 提交后移除创建的form
-    }
+    // //用form表单提交
+    // function doPost(to, p) { // to:提交动作（action）,p:参数
+    //     var myForm = document.createElement("form");
+    //     myForm.method = "post";
+    //     myForm.action = to;
+    //     for (var i in p){
+    //         var myInput = document.createElement("input");
+    //         myInput.setAttribute("articleid", i); // 为input对象设置name
+    //         myInput.setAttribute("value", p[i]); // 为input对象设置value
+    //         myForm.appendChild(myInput);
+    //     }
+    //     document.body.appendChild(myForm);
+    //     myForm.submit();
+    //     document.body.removeChild(myForm); // 提交后移除创建的form
+    // }
+
+    // //用ajax提交
+    // $("#showDetail").on("click",function(event){
+    //     event.preventDefault(); // 使a自带的方法失效，即无法发出请求
+    //     $.ajax({
+    //         type: "POST", // 使用post方式
+    //         url: "/article/showUserArticleView",
+    //         data: JSON.stringify({articleid:value1, param2:value2}), // 参数列表，stringify()方法用于将JS对象序列化为json字符串
+    //         dataType:"json",
+    //         success: function(result){
+    //         // 请求成功后的操作
+    //         },
+    //         error: function(result){
+    //         // 请求失败后的操作
+    //         }
+    //     });
+    // });
+
 </script>
 
 </body>
