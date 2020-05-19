@@ -117,7 +117,8 @@
     <div class="login_bg1">
         <form action="/image/addImage" method="post" class="" enctype="multipart/form-data">
             <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加相片：</div>
-            <input type="file" name="file">
+            <input type="file" name="file" id="uploadImage">
+            <img id="img"/>
             <div class="write_textarea_article_content">
                 <textarea style="border-radius: 10px;font-size: 20px;" id="write_textarea_article_content" name="imagememo" placeholder="键入图片描述 / Enter Image Memo"></textarea>
             </div>
@@ -147,14 +148,20 @@
 
     $(".login_bg1 input").attr("autocomplete","off");
 
-    $("#uploadBtn").hover(
-        function () {
-            $(this).css("opacity","0.4");
-        },
-        function () {
-            $(this).css("opacity","1");
+    $("#uploadImage").click(function () {
+        var filePath = $(this).val();//获取到input的value，里面是文件的路径
+            fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();
+            src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
+
+        // 检查是否是图片
+        if(!fileFormat.match(/.png|.jpg|.jpeg/)) {
+            alert("上传错误,文件格式必须为：png/jpg/jpeg");
+            return;
         }
-    );
+        $("#img").attr("src",src);
+
+    })
+
 </script>
 </body>
 </html>
