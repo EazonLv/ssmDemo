@@ -3,6 +3,7 @@ package com.entity;
 public class Image {
     private String imageid;
     private String imagememo;
+    private String imageurl;
     private String albumid;
     private String albumname;
 
@@ -38,11 +39,20 @@ public class Image {
         this.albumname = albumname;
     }
 
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
                 "imageid='" + imageid + '\'' +
                 ", imagememo='" + imagememo + '\'' +
+                ", imageurl='" + imageurl + '\'' +
                 ", albumid='" + albumid + '\'' +
                 ", albumname='" + albumname + '\'' +
                 '}';
