@@ -1,11 +1,16 @@
 package com.entity;
 
+import com.util.VeDate;
+import org.springframework.web.multipart.MultipartFile;
+
 public class Image {
-    private String imageid;
+    private String imageid = "IMG"+VeDate.getStringId();
     private String imagememo;
     private String imageurl;
     private String albumid;
     private String albumname;
+    //辅助图片上传属性
+    private MultipartFile file;
 
     public String getImageid() {
         return imageid;
@@ -47,6 +52,14 @@ public class Image {
         this.imageurl = imageurl;
     }
 
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
     @Override
     public String toString() {
         return "Image{" +
@@ -55,6 +68,7 @@ public class Image {
                 ", imageurl='" + imageurl + '\'' +
                 ", albumid='" + albumid + '\'' +
                 ", albumname='" + albumname + '\'' +
+                ", file=" + file +
                 '}';
     }
 }

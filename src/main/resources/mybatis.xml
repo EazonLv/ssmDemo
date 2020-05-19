@@ -27,5 +27,7 @@
         <mapper resource="mapper/article.xml"></mapper>
         <mapper resource="mapper/message.xml"></mapper>
         <mapper resource="mapper/msgleaveword.xml"></mapper>
+        <mapper resource="mapper/album.xml"></mapper>
+        <mapper resource="mapper/image.xml"></mapper>
     </mappers>
 </configuration>

@@ -66,7 +66,7 @@
             </ul>
         </ul>
     </c:if>
-    <a class="items" href="">
+    <a class="items" href="/index/album">
         <div>相册</div>
         <div>Album</div>
     </a>

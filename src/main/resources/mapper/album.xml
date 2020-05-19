@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.AlbumDao">
+    <resultMap id="albumMap" type="com.entity.Album">
+        <id property="albumid" column="albumid" />
+        <result property="album" column="album"/>
+        <result property="userid" column="userid"/>
+        <result property="username" column="username"/>
+        <result property="albummemo" column="albummemo"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addAlbum" parameterType="com.entity.Album">
+		insert into t_albums(albumid , album , userid ,username , albummemo) values(#{albumid} , #{album} ,
+		#{userid} , #{username} , #{albummemo})
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateAlbum" parameterType="com.entity.Album">
+		update t_albums set album=#{album} , userid=#{userid} , username=#{username} ,albummemo=#{albummemo}
+		where
+		albumid=#{albumid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteAlbum" parameterType="String">
+		delete from t_albums where
+		albumid = #{albumid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllAlbum" resultMap="albumMap">
+		select * from t_albums
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findAlbumByCondition" parameterType="com.entity.Album"
+            resultMap="albumMap">
+        select * from t_albums a where 1=1
+        <if test="albumid != null and '' != albumid">
+            and albumid = #{albumid}
+        </if>
+        <if test="album != null and '' != album">
+            and album = #{album}
+        </if>
+        <if test="userid != null and '' != userid">
+            and userid = #{userid}
+        </if>
+        <if test="username != null and '' != username">
+            and username = #{username}
+        </if>
+        <if test="albummemo != null and '' != albummemo">
+            and albummemo = #{albummemo}
+        </if>
+    </select>
+</mapper>

@@ -47,6 +47,12 @@ public class IndexController extends BaseController{
 	@RequestMapping("/addMessage")
 	public String indexToAddMessage(){return "addMessage";}
 
+	@RequestMapping("/album")
+	public String indexToAlbum(){return "album";}
+
+	@RequestMapping("/addImage")
+	public String indexToAddImage(){return "addImage";}
+
 	/**
 	 * 首页方法：通过userid查找用户名并列在articleAndWriters表中
 	 * @return List<ArticleAndWriter> 包含title、content、writer

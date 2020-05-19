@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.ImageDao">
+    <resultMap id="imageMap" type="com.entity.Image">
+        <id property="imageid" column="imageid" />
+        <result property="imageurl" column="imageurl"/>
+        <result property="albumid" column="albumid"/>
+        <result property="albumname" column="albumname"/>
+        <result property="imagememo" column="imagememo"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addImage" parameterType="com.entity.Image">
+		insert into t_images(imageid , imageurl , albumid ,albumname , imagememo) values(#{imageid} , #{imageurl} ,
+		#{albumid} , #{albumname} , #{imagememo})
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateImage" parameterType="com.entity.Image">
+		update t_images set imageurl=#{imageurl} , albumid=#{albumid} , albumname=#{albumname} ,imagememo=#{imagememo}
+		where
+		imageid=#{imageid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteImage" parameterType="String">
+		delete from t_images where
+		imageid = #{imageid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllImage" resultMap="imageMap">
+		select * from t_images
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findImageByCondition" parameterType="com.entity.Image"
+            resultMap="imageMap">
+        select * from t_images a where 1=1
+        <if test="imageid != null and '' != imageid">
+            and imageid = #{imageid}
+        </if>
+        <if test="imageurl != null and '' != imageurl">
+            and imageurl = #{imageurl}
+        </if>
+        <if test="albumid != null and '' != albumid">
+            and albumid = #{albumid}
+        </if>
+        <if test="albumname != null and '' != albumname">
+            and albumname = #{albumname}
+        </if>
+        <if test="imagememo != null and '' != imagememo">
+            and imagememo = #{imagememo}
+        </if>
+    </select>
+</mapper>

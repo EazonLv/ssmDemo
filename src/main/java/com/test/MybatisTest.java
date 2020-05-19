@@ -1,11 +1,11 @@
 package com.test;
 
 import com.dao.ArticleDao;
+import com.dao.ImageDao;
 import com.dao.MessageDao;
-import com.dao.MsgleavewordDao;
 import com.entity.Article;
 import com.entity.Message;
-import com.entity.Msgleaveword;
+import com.entity.Image;
 import com.util.ArticleAndWriter;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -36,11 +36,12 @@ public class MybatisTest {
 		//获取代理对象
 
 
-		MsgleavewordDao msgleavewordDao = sqlSession.getMapper(MsgleavewordDao.class);
-		List<Msgleaveword> msgleavewordList = msgleavewordDao.findAllMsgleaveword();
-		for(Msgleaveword m:msgleavewordList){
+		ImageDao imageDao = sqlSession.getMapper(ImageDao.class);
+		List<Image> imageList = imageDao.findAllImage();
+		for(Image m:imageList){
 			System.out.println(m);
 		}
+
 
 //		MessageDao messageDao = sqlSession.getMapper(MessageDao.class);
 //		List<Message> messageList = messageDao.findAllMessage();

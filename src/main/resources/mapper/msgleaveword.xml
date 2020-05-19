@@ -17,7 +17,7 @@
 		#{userid} , #{username} , #{messageid} , #{msgleavewordtime})
 	</insert>
     <!-- 更新语句 DAO通过id调用此配置 -->
-    <update id="updateMsgleavewordInfo" parameterType="com.entity.Msgleaveword">
+    <update id="updateMsgleaveword" parameterType="com.entity.Msgleaveword">
 		update t_msgleavewords set leaveword=#{leaveword} , userid=#{userid} , username=#{username} , messageid=#{messageid} ,msgleavewordtime=#{msgleavewordtime}
 		where
 		msgleavewordid=#{msgleavewordid}

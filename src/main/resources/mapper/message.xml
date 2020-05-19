@@ -16,7 +16,7 @@
 		#{userid} , #{username} , #{messagetime})
 	</insert>
     <!-- 更新语句 DAO通过id调用此配置 -->
-    <update id="updateMessageInfo" parameterType="com.entity.Message">
+    <update id="updateMessage" parameterType="com.entity.Message">
 		update t_messages set message=#{message} , userid=#{userid} , username=#{username} ,messagetime=#{messagetime}
 		where
 		messageid=#{messageid}
