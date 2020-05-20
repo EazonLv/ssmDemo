@@ -33,7 +33,7 @@ public class ImageController extends BaseController{
             // 获得文件后缀名
             String suffixName = contentType.substring(contentType.indexOf("/") + 1);
             // 得到 文件名
-            filename = VeDate.getStringDatex() + "." + suffixName;
+            filename = "ALBUM"+VeDate.getStringDatex() + "." + suffixName;
             // 文件保存路径
             image.getFile().transferTo(new File(realPath + "/images/"+ filename));
         }
