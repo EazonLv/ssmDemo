@@ -36,6 +36,8 @@ public class ImageController extends BaseController{
             filename = "ALBUM"+VeDate.getStringDatex() + "." + suffixName;
             // 文件保存路径
             image.getFile().transferTo(new File(realPath + "/images/"+ filename));
+            // 保存到工程目录
+            image.getFile().transferTo(new File("D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images"+ filename));
         }
         // 把图片的相对路径保存至数据库
         //sqlPath = "/images/" + filename;
