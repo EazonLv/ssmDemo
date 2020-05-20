@@ -9,15 +9,16 @@
         <result property="userid" column="userid"/>
         <result property="username" column="username"/>
         <result property="albummemo" column="albummemo"/>
+        <result property="albumcover" column="albumcover"/>
     </resultMap>
     <!-- 插入语句 DAO通过id调用此配置 -->
     <insert id="addAlbum" parameterType="com.entity.Album">
-		insert into t_albums(albumid , album , userid ,username , albummemo) values(#{albumid} , #{album} ,
-		#{userid} , #{username} , #{albummemo})
+		insert into t_albums(albumid , album , userid ,username , albummemo , albumcover) values(#{albumid} , #{album} ,
+		#{userid} , #{username} , #{albummemo} , #{albumcover})
 	</insert>
     <!-- 更新语句 DAO通过id调用此配置 -->
     <update id="updateAlbum" parameterType="com.entity.Album">
-		update t_albums set album=#{album} , userid=#{userid} , username=#{username} ,albummemo=#{albummemo}
+		update t_albums set album=#{album} , userid=#{userid} , username=#{username} ,albummemo=#{albummemo},albumcover=#{albumcover}
 		where
 		albumid=#{albumid}
 	</update>
@@ -48,6 +49,9 @@
         </if>
         <if test="albummemo != null and '' != albummemo">
             and albummemo = #{albummemo}
+        </if>
+        <if test="albumcover != null and '' != albumcover">
+            and albumcover = #{albumcover}
         </if>
     </select>
 </mapper>

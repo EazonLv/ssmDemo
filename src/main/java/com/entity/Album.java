@@ -8,6 +8,7 @@ public class Album {
     private String albummemo;//相册备注
     private String userid;//用户id
     private String username;//用户名
+    private String albumcover;//相册封面
 
     public String getAlbumid() {
         return albumid;
@@ -49,6 +50,14 @@ public class Album {
         this.username = username;
     }
 
+    public String getAlbumcover() {
+        return albumcover;
+    }
+
+    public void setAlbumcover(String albumcover) {
+        this.albumcover = albumcover;
+    }
+
     @Override
     public String toString() {
         return "Album{" +
@@ -57,6 +66,7 @@ public class Album {
                 ", albummemo='" + albummemo + '\'' +
                 ", userid='" + userid + '\'' +
                 ", username='" + username + '\'' +
+                ", albumcover='" + albumcover + '\'' +
                 '}';
     }
 }

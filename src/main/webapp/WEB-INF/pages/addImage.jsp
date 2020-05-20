@@ -87,17 +87,6 @@
 <script src="${path}/static/js/manager_login.js" type="text/javascript"></script>
 <script src="${path}/static/js/blog_and_daily.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(".write_textarea_article_button button:last-child").click(
-        function () {
-            var content = $("#write_textarea_article_content").val();
-
-
-            if(content == "" || content ==null){
-                alert("留言内容不能为空！");
-                return false;
-            }
-        }
-    )
 
     $(".login_bg1 input").attr("autocomplete","off");
 
