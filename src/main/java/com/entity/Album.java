@@ -1,6 +1,7 @@
 package com.entity;
 
 import com.util.VeDate;
+import org.springframework.web.multipart.MultipartFile;
 
 public class Album {
     private String albumid = "ALBUM"+VeDate.getStringId();//生成主键编号
@@ -9,6 +10,8 @@ public class Album {
     private String userid;//用户id
     private String username;//用户名
     private String albumcover;//相册封面
+    //辅助图片上传属性
+    private MultipartFile file;
 
     public String getAlbumid() {
         return albumid;
@@ -58,6 +61,14 @@ public class Album {
         this.albumcover = albumcover;
     }
 
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
     @Override
     public String toString() {
         return "Album{" +
@@ -67,6 +78,7 @@ public class Album {
                 ", userid='" + userid + '\'' +
                 ", username='" + username + '\'' +
                 ", albumcover='" + albumcover + '\'' +
+                ", file=" + file +
                 '}';
     }
 }

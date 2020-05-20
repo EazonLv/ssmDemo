@@ -42,16 +42,35 @@ public class IndexController extends BaseController{
 	public String indexToMessage(){return "redirect:/message/showAllMessages";}
 
 	@RequestMapping("/addArticle")
-	public String indexToAddArticle(){return "addArticle";}
+	public String indexToAddArticle(){if (isNotLogin()){return "response/returnToLogin";}return "addArticle";}
 
 	@RequestMapping("/addMessage")
-	public String indexToAddMessage(){return "addMessage";}
+	public String indexToAddMessage(){if (isNotLogin()){return "response/returnToLogin";}return "addMessage";}
 
 	@RequestMapping("/album")
 	public String indexToAlbum(){return "album";}
 
 	@RequestMapping("/addImage")
-	public String indexToAddImage(){return "addImage";}
+	public String indexToAddImage(){if (isNotLogin()){return "response/returnToLogin";}return "addImage"; }
+
+	@RequestMapping("/showUserAlbum")
+	public String indexToUserAlbum(){if (isNotLogin()){return "response/returnToLogin";}return "userAlbum"; }
+
+	@RequestMapping("/addAlbum")
+	public String indexToAddAlbum(){if (isNotLogin()){return "response/returnToLogin";}return "addAlbum"; }
+
+	/**
+	 * 判断是否登陆
+	 */
+	public Boolean isNotLogin(){
+		//验证登录
+		if (this.getSession().getAttribute("userid") == null){
+			this.getSession().setAttribute("message","请先登录");
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	/**
 	 * 首页方法：通过userid查找用户名并列在articleAndWriters表中

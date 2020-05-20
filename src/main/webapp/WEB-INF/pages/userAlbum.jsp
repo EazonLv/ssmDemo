@@ -11,8 +11,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>album</title>
+    <title>userAlbum</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
+    <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <style>
         html{height: 100%}
@@ -25,7 +26,9 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="content">
-    
+    <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;display: inline-block;width: 96%">
+        <a class="btn btn-success" href="/index/addAlbum">添加相册</a>
+    </div>
     <div class="content_" style="display: inline-block;">
         <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
             <img src="${path}/static/img/ChMkJ1bKwXaIXdnDAAjG6xki36wAALGYgPXmb0ACMcD412.jpg" alt="">
@@ -53,5 +56,8 @@
 <jsp:include page="common/footer.jsp"></jsp:include>
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="${path}/static/js/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

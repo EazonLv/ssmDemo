@@ -61,6 +61,7 @@
             </div>
             <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
                 <li class="_items"><a  href="/article/showUserArticle">我的博文</a></li>
+                <li class="_items"><a  href="/index/showUserAlbum">我的相册</a></li>
                 <li class="_items"><a  href="/message/showUserMessage">我的留言</a></li>
                 <li class="_items"><a  href="/user/logout">退出</a></li>
             </ul>

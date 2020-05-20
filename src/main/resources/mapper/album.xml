@@ -5,7 +5,7 @@
 <mapper namespace="com.dao.AlbumDao">
     <resultMap id="albumMap" type="com.entity.Album">
         <id property="albumid" column="albumid" />
-        <result property="album" column="album"/>
+        <result property="albumname" column="albumname"/>
         <result property="userid" column="userid"/>
         <result property="username" column="username"/>
         <result property="albummemo" column="albummemo"/>
@@ -13,12 +13,12 @@
     </resultMap>
     <!-- 插入语句 DAO通过id调用此配置 -->
     <insert id="addAlbum" parameterType="com.entity.Album">
-		insert into t_albums(albumid , album , userid ,username , albummemo , albumcover) values(#{albumid} , #{album} ,
+		insert into t_albums(albumid , albumname , userid ,username , albummemo , albumcover) values(#{albumid} , #{albumname} ,
 		#{userid} , #{username} , #{albummemo} , #{albumcover})
 	</insert>
     <!-- 更新语句 DAO通过id调用此配置 -->
     <update id="updateAlbum" parameterType="com.entity.Album">
-		update t_albums set album=#{album} , userid=#{userid} , username=#{username} ,albummemo=#{albummemo},albumcover=#{albumcover}
+		update t_albums set albumname=#{albumname} , userid=#{userid} , username=#{username} ,albummemo=#{albummemo},albumcover=#{albumcover}
 		where
 		albumid=#{albumid}
 	</update>
@@ -38,8 +38,8 @@
         <if test="albumid != null and '' != albumid">
             and albumid = #{albumid}
         </if>
-        <if test="album != null and '' != album">
-            and album = #{album}
+        <if test="albumname != null and '' != albumname">
+            and albumname = #{albumname}
         </if>
         <if test="userid != null and '' != userid">
             and userid = #{userid}

@@ -35,7 +35,7 @@ public class ImageController extends BaseController{
             // 获得文件后缀名
             String suffixName = contentType.substring(contentType.indexOf("/") + 1);
             // 得到 文件名
-            filename = "ALBUM"+VeDate.getStringDatex() + "." + suffixName;
+            filename = "IMG"+VeDate.getStringDatex() + "." + suffixName;
             // 文件保存路径
             File file1 = new File(realPath + "/images/"+ filename);
             image.getFile().transferTo(file1);
