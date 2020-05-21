@@ -1,7 +1,9 @@
 package com.controller;
 
+import com.entity.Album;
 import com.entity.Article;
 import com.entity.Message;
+import com.service.AlbumService;
 import com.service.ArticleService;
 import com.service.MessageService;
 import com.util.ArticleAndWriter;
@@ -21,6 +23,8 @@ public class IndexController extends BaseController{
 	private ArticleService articleService;
 	@Resource
 	private MessageService messageService;
+	@Resource
+	private AlbumService albumService;
 
 	@RequestMapping("/login")
 	public String indexLogin(){return "userLogin";}
@@ -31,6 +35,8 @@ public class IndexController extends BaseController{
 		model.addAttribute("articleAndWriters",articleAndWriters);
 		List<Message> messages = reverseMessageList(messageService.findAllMessage());
 		model.addAttribute("messages",messages);
+		List<Object> objects1 = reverseList(albumService.findAllAlbum());
+		model.addAttribute("albumList",objects1);
 		return "userHome";
 	}
 
@@ -47,14 +53,15 @@ public class IndexController extends BaseController{
 	@RequestMapping("/addMessage")
 	public String indexToAddMessage(){if (isNotLogin()){return "response/returnToLogin";}return "addMessage";}
 
-	@RequestMapping("/album")
-	public String indexToAlbum(){return "album";}
-
 	@RequestMapping("/addImage")
-	public String indexToAddImage(){if (isNotLogin()){return "response/returnToLogin";}return "addImage"; }
+	public String indexToAddImage(Album album,Model model){
+		if (isNotLogin()){return "response/returnToLogin";}
 
-	@RequestMapping("/showUserAlbum")
-	public String indexToUserAlbum(){if (isNotLogin()){return "response/returnToLogin";}return "userAlbum"; }
+		model.addAttribute("albumid",album.getAlbumid());
+		model.addAttribute("albumname",album.getAlbumname());
+
+
+		return "addImage"; }
 
 	@RequestMapping("/addAlbum")
 	public String indexToAddAlbum(){if (isNotLogin()){return "response/returnToLogin";}return "addAlbum"; }

@@ -23,7 +23,7 @@ body::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2)
 .header{cursor: default;padding-left:25px;padding-top:15px;text-align: left;font-size: 75px;font-family: RBNo2;letter-spacing: 10px;display: inline-block;width: 40%;}
 .subheader{letter-spacing: 2px;font-size: 15px;}
 .main{display: flex;width: 100%;}
-.content{}
+.content{text-align: center;}
 .aside{text-align: center;align-items: center;margin-top: 10px;margin-top: 50px;}
 .aside_content{padding: 30px;width:80px;margin-left: auto;margin-right: auto;text-align: center;height:75px;}
 .home{border: 2px solid #363636;height: 550px;width: 1200px;margin-left: auto;margin-right: auto;margin-top: 60px;text-align: center;border-radius: 20px;}

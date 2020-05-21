@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <style>
         html{height: 100%}
-        .content_{text-align: left;display: inline-block;}
+        .content_{text-align: center;display: inline-block;}
         .content_ div{width: 48%;display: inline-block;margin-top: 15px;vertical-align: }
         .content_ img{width: 98%;border: 4px solid #777777;opacity: 0.8;}
     </style>

@@ -64,17 +64,19 @@
 <div class="login no_select">
     <div class="login_bg1">
         <form action="/image/addImage" method="post" class="" enctype="multipart/form-data">
-            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加相片：</div>
+            <div style="margin-bottom: 10px;color: #07558c;font-size: 30px;">添加相片到相册（${albumname}）：</div>
             <div class="write_textarea_article_content">
                 <textarea style="vertical-align: top;width:30%;border-radius: 10px;font-size: 20px;" id="write_textarea_article_content" name="imagememo" placeholder="键入图片描述 / Enter Image Memo"></textarea>
                 <div style="vertical-align: top;width: 40%;display: inline-block;height: 430px;background: #D0DDEF;border-radius: 10px;padding: 10px;">
                     <img id="img" style="display: inline-block;border: 4px solid #777777;width: 95%;height: 400px;" src="${path}/static/img/luesuotu.jpg"/>
                 </div>
                 <div style="vertical-align: top;width: 10%;display: inline-block;height: 430px;background: #D0DDEF;border-radius: 10px;padding: 10px;">
-                    <div align="center" style="display: inline-block;"><span class="btn btn-success fileinput-button"><span>上传</span><input type="file"name="file" id="uploadImage"></span></div>
+                    <div align="center" style="display: inline-block;"><span class="btn btn-success fileinput-button"><span>上传相片</span><input type="file"name="file" id="uploadImage"></span></div>
                 </div>
             </div>
             <div class="write_textarea_article_button"><button type="submit" style="margin: 10px;">提交 / Submit</button></div>
+            <input type="hidden" name="albumid" value="${albumid}">
+            <input type="hidden" name="albumname" value="${albumname}">
         </form>
     </div>
 </div>

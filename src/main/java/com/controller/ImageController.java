@@ -5,18 +5,20 @@ import com.service.ImageService;
 import com.util.VeDate;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.util.List;
 
 @Controller
-@RequestMapping("image")
+@RequestMapping("/image")
 public class ImageController extends BaseController{
     @Resource
     private ImageService imageService;
 
-    @RequestMapping("addImage")
+    @RequestMapping("/addImage")
     public String addImage(Image image) throws Exception {
         //验证登录
         if (this.getSession().getAttribute("userid") == null){
@@ -47,12 +49,42 @@ public class ImageController extends BaseController{
         //sqlPath = "/images/" + filename;
         //System.out.println(sqlPath);
         image.setImageurl(filename);
-        image.setAlbumid("ALBUM123");
-        image.setAlbumname("默认相册");
         if (imageService.addImage(image)==1){
             this.getSession().setAttribute("message","相片上传成功");
         }
-        return "response/returnToAlbum";
+        return "response/returnToUserAlbum";
+    }
+
+    @RequestMapping("/showAlbumImage")
+    public String showAlbumImage(Image image, Model model){
+        //验证登录
+        if (this.getSession().getAttribute("userid") == null){
+            this.getSession().setAttribute("message","请先登录");
+            return "response/returnToLogin";
+        }
+
+        image.setImageid("");
+        model.addAttribute("albumname",image.getAlbumname());
+        model.addAttribute("albumid",image.getAlbumid());
+        image.setAlbumname("");
+        List<Image> imageList = imageService.findImageByCondition(image);
+
+
+        System.out.println(imageList);
+        List<Object> objects = reverseList(imageList);
+        model.addAttribute("imageList",objects);
+
+
+        return "userAlbumImage";
+
+    }
+
+    @RequestMapping("/showImageDetail")
+    public String showImageDetail(Image image, Model model){
+        if(imageService.findImageByCondition(image)!=null){
+            model.addAttribute("image",imageService.findImageByCondition(image).get(0));
+        }
+        return ("imageDetail");
     }
 
 

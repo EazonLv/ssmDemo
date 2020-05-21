@@ -29,26 +29,28 @@
 
 
     <div style="width: 100%;text-align: left;background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;display: inline-block;">
-        ${username}的相册集：
-        <a class="btn btn-success" href="/index/addAlbum">添加相册</a>
+        <span>我的相册（${albumname}）:</span>
+        <form style="display: inline-block;" action="/index/addImage" method="post">
+            <input type="hidden" name="albumid" value="${albumid}">
+            <input type="hidden" name="albumname" value="${albumname}">
+            <button class="btn btn-success" style="outline: none;" type="submit">添加相片</button>
+        </form>
     </div>
-    <c:if test="${noList == false}">
+    <c:if test="${imageList.size() > 0}">
     <div class="content_" style="display: inline-block;text-align: center">
-        <c:forEach items="${albumList}" var="a">
-        <div style="text-align:center;background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
-            <img src="${path}/images/${a.albumcover}" alt="">
-            <form action="/image/showAlbumImage" method="post">
-                <input type="hidden" name="albumid" value="${a.albumid}">
-                <input type="hidden" name="albumname" value="${a.albumname}">
-                <input class="showAlbumImage" type="submit" style="display: block;text-align: left;font-size: 30px;cursor: pointer;border: none;background: none;outline: none;color: #363636;" value="${a.albumname}">
-            </form>
-            <div style="display: block;text-align: left">创建者：${a.username}</div>
-            <div style="display: block;text-align: left">备注：${a.albummemo}</div>
-        </div>
+        <c:forEach items="${imageList}" var="i">
+            <div style="text-align:center;background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
+                <img src="${path}/images/${i.imageurl}" alt="">
+                <form action="/image/showImageDetail" method="post">
+                    <input type="hidden" name="imageid" value="${i.imageid}">
+                    <input class="showAlbumImage" type="submit" style="display: block;text-align: left;font-size: 30px;cursor: pointer;border: none;background: none;outline: none;color: #363636;" value="查看图片">
+                </form>
+                <div style="display: block;text-align: left">备注：${i.imagememo}</div>
+            </div>
         </c:forEach>
     </div>
     </c:if>
-    <c:if test="${noList == true}">
+    <c:if test="${imageList.size() == 0}">
         <div style="margin-top:10px;width: 100%;text-align: left;background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;display: inline-block;">
             暂无内容
         </div>

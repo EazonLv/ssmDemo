@@ -61,13 +61,13 @@
             </div>
             <ul id="userMenuUl" style="list-style-type: none;text-decoration: none;background: white;display: none">
                 <li class="_items"><a  href="/article/showUserArticle">我的博文</a></li>
-                <li class="_items"><a  href="/index/showUserAlbum">我的相册</a></li>
+                <li class="_items"><a  href="/album/showUserAlbum">我的相册</a></li>
                 <li class="_items"><a  href="/message/showUserMessage">我的留言</a></li>
                 <li class="_items"><a  href="/user/logout">退出</a></li>
             </ul>
         </ul>
     </c:if>
-    <a class="items" href="/index/album">
+    <a class="items" href="/album/showAllAlbum">
         <div>相册</div>
         <div>Album</div>
     </a>
@@ -84,6 +84,10 @@
         <div>Link</div>
     </a>
 </div>
+<c:set value="${sessionScope.get('userid')}" var="userid" scope="page"/>
+<c:if test="${userid != null}">
+    <div style="text-align: left;margin-bottom: 10px;color: #363636;font-size: 20px;background-color: rgba(255,255,255,0.6);padding:10px; ">欢迎用户${username}！</div>
+</c:if>
 
 <script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="${path}/static/js/common.js" type="text/javascript"></script>

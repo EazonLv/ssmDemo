@@ -15,7 +15,7 @@
 <body>
 <script language="javascript">
     alert("<%=request.getSession().getAttribute("message")%>")
-    location.assign("${path}/index/showUserAlbum")
+    location.assign("${path}/album/showUserAlbum")
 
 </script>
 </body>

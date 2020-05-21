@@ -2,14 +2,17 @@ package com.controller;
 
 import com.entity.Album;
 import com.service.AlbumService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.util.VeDate;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("album")
@@ -50,5 +53,35 @@ public class AlbumController extends BaseController{
             this.getSession().setAttribute("message","添加相册成功");
         }
         return ("response/returnToUserAlbum");
+    }
+
+    @RequestMapping("showUserAlbum")
+    public String showUserAlbum(Album album, Model model){
+        //验证登录
+        if (this.getSession().getAttribute("userid") == null){
+            this.getSession().setAttribute("message","请先登录");
+            return "response/returnToLogin";
+        }
+
+        String userid = (String) this.getSession().getAttribute("userid");
+        album.setUserid(userid);
+        album.setAlbumid("");
+        if(albumService.findAlbumByCondition(album).size()!=0){
+            List<Album> albumList= albumService.findAlbumByCondition(album);
+            List<Object> objects = reverseList(albumList);
+            model.addAttribute("albumList",objects);
+            model.addAttribute("noList",false);
+        }else {
+            model.addAttribute("noList",true);
+        }
+
+        return "userAlbum";
+    }
+
+    @RequestMapping("showAllAlbum")
+    public String showAllAlbum(Model model){
+        List<Object> objects1 = reverseList(albumService.findAllAlbum());
+        model.addAttribute("albumList",objects1);
+        return ("album");
     }
 }
