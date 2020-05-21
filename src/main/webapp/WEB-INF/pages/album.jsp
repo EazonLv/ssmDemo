@@ -27,25 +27,14 @@
 <div class="content">
     
     <div class="content_" style="display: inline-block;">
+        <c:forEach items="${albumList}" var="a">
         <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
-            <img src="${path}/static/img/ChMkJ1bKwXaIXdnDAAjG6xki36wAALGYgPXmb0ACMcD412.jpg" alt="">
-            <div style="display: block;text-align: left">默认相册</div>
-            <div style="display: block;text-align: left">创建者：</div>
-            <div style="display: block;text-align: left">备注：</div>
+            <img src="${path}/images/${a.albumcover}" alt="">
+            <div style="display: block;text-align: left">${a.albumname}</div>
+            <div style="display: block;text-align: left">创建者：${a.username}</div>
+            <div style="display: block;text-align: left">备注：${a.albummemo}</div>
         </div>
-        <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
-            <img src="${path}/static/img/ChMkJ1bKwXaIXdnDAAjG6xki36wAALGYgPXmb0ACMcD412.jpg" alt="">
-            <div style="display: block;text-align: left">默认相册</div>
-            <div style="display: block;text-align: left">创建者：</div>
-            <div style="display: block;text-align: left">备注：</div>
-        </div>
-        <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
-            <img src="${path}/static/img/ChMkJ1bKwXaIXdnDAAjG6xki36wAALGYgPXmb0ACMcD412.jpg" alt="">
-            <div style="display: block;text-align: left">默认相册</div>
-            <div style="display: block;text-align: left">创建者：</div>
-            <div style="display: block;text-align: left">备注：</div>
-        </div>
-
+        </c:forEach>
 
     </div>
 </div>
