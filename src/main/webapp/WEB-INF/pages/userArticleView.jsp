@@ -40,6 +40,10 @@
         .write_textarea_article_button button{padding-left: 5px;padding-right: 5px;padding-top: 10px;padding-bottom: 10px;width: 155px;border:none;border-radius: 10px;background: #108ee9;cursor: pointer;color: #dddddd;font-size: 15px;}
 
         .login_bg1{background-color: rgba(255,255,255,0.6);padding: 25px;}
+
+        textarea::-webkit-scrollbar {width: 4px;height: 4px;}
+        textarea::-webkit-scrollbar-thumb {-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);background: #777777;}
+        textarea::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.2);border-radius: 10px;background: #ffffff;}
     </style>
 </head>
 <body class="bg_image_main no_select">

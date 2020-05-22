@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>userArticle</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
+    <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
 
@@ -45,9 +46,11 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 
-<div class="content">
+<div class="content" >
 
-    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的博文：<div style="text-align: right;"><div  class="article_write"  style="text-align: center"><a href="/index/addArticle" style="text-decoration: none;color: #363636;">写博文</a></div></div></div>
+    <div style="text-align: left;margin-bottom: 10px;color: #204d74;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的博文：
+        <a href="/index/addArticle" style="outline: none" class="btn-success btn">添加博文</a>
+    </div>
 
     <c:forEach items="${articles}" var="a">
         <div class="subitem_summary" style="cursor: pointer;text-align: left">

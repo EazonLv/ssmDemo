@@ -12,8 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <title>index</title>
-    <link rel="stylesheet" href="${path}/static/css/reset.css">
-    <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
+    <link rel="stylesheet" href="${path}/css/reset.css">
+    <link rel="stylesheet" href="${path}/css/self_defined_setting.css">
     <style>
         html{height: 100%}
     </style>
@@ -37,8 +37,8 @@
         </div>
     </div>
 </div>
-<script src="${path}/static/js/jquery-3.3.1.js" type="text/javascript"></script>
-<script src="${path}/static/js/common.js" type="text/javascript"></script>
-<script src="${path}/static/js/welcome_page.js" type="text/javascript"></script>
+<script src="${path}/js/jquery-3.3.1.js" type="text/javascript"></script>
+<script src="${path}/js/common.js" type="text/javascript"></script>
+<script src="${path}/js/welcome_page.js" type="text/javascript"></script>
 </body>
 </html>

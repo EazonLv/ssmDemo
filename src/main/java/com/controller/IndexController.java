@@ -26,6 +26,9 @@ public class IndexController extends BaseController{
 	@Resource
 	private AlbumService albumService;
 
+	@RequestMapping("index")
+	public String indexIndex(){return "index";}
+
 	@RequestMapping("/login")
 	public String indexLogin(){return "userLogin";}
 

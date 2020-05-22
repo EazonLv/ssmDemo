@@ -93,8 +93,24 @@ public class AlbumController extends BaseController{
             return "response/returnToLogin";
         }
 
-        if(albumService.deleteAlbum(album)==1){
+        //删除相册封面源文件：
+        // 服务器路径
+        String serverPath = this.getSession().getServletContext().getRealPath("/");
+        // 工程目录
+        String realPath = "D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images\\";
+
+        List<Album> imageList = albumService.findAlbumByCondition(album);
+        Album album2 = imageList.get(0);
+        String fileName = album2.getAlbumcover();
+        File file1 = new File(serverPath + "/images/"+fileName);
+        File file2 = new File(realPath + fileName);
+        boolean f1 = file1.delete();
+        boolean f2 = file2.delete();
+
+        if(albumService.deleteAlbum(album)==1 && f1==true && f2==true){
             this.getSession().setAttribute("message","删除相册成功");
+        }else{
+            this.getSession().setAttribute("message","删除相册失败");
         }
         return "response/returnToUserAlbum";
     }
