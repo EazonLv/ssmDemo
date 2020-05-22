@@ -84,4 +84,18 @@ public class AlbumController extends BaseController{
         model.addAttribute("albumList",objects1);
         return ("album");
     }
+
+    @RequestMapping("deleteAlbum")
+    public String deleteAlbum(Album album){
+        //验证登录
+        if (this.getSession().getAttribute("userid") == null){
+            this.getSession().setAttribute("message","请先登录");
+            return "response/returnToLogin";
+        }
+
+        if(albumService.deleteAlbum(album)==1){
+            this.getSession().setAttribute("message","删除相册成功");
+        }
+        return "response/returnToUserAlbum";
+    }
 }

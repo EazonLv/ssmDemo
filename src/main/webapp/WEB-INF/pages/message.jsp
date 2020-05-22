@@ -23,8 +23,8 @@
         .content_1 > div{display: inline-block;margin: 20px;}
         .message_content_float_box{position: relative;border-radius: 15px;display: inline-block;background-color: rgba(255,255,255,0.6);border: 2px solid transparent;padding: 15px;cursor: pointer;}
         .message_content_float_box span:first-child{font-family: 幼圆;color: black;}
-        .message_content_float_box span:nth-child(2){font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
-        .message_content_float_box span:last-child{font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
+        .message_content_float_box span:nth-child(2){font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;display: inline-block}
+        .message_content_float_box span:last-child{font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;display: inline-block}
 
     </style>
 </head>
@@ -32,12 +32,12 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="content1">
-    <div class="content_1">
+    <div class="content_1" style="text-align: left">
         <c:forEach items="${messageList}" var="message">
-            <div class="message_content_float_box">
-                <span>${message.message}</span>
-                <span>${message.messagetime}</span>
-                <span>from ${message.username}</span>
+            <div class="message_content_float_box" style="text-align: center;width: 45%;margin: 1%">
+                <span style="width: 58%;display: inline-block;word-break: break-all;text-align: left;">${message.message}</span>
+                <span style="width: 18%;display: inline-block;word-break: break-all;">${message.messagetime}</span>
+                <span style="width: 18%;display: inline-block;word-break: break-all;">from ${message.username}</span>
             </div>
         </c:forEach>
     </div>

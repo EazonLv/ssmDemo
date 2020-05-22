@@ -227,6 +227,24 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+        <!--&lt;!&ndash;防止maven对resource下的模板文件（excel模板、.woff字体文件等）处理造成不必要的错误&ndash;&gt;-->
+        <!--<plugin>-->
+          <!--<groupId>org.apache.maven.plugins</groupId>-->
+          <!--<artifactId>maven-resources-plugin</artifactId>-->
+          <!--<configuration>-->
+            <!--<nonFilteredFileExtensions>-->
+              <!--<nonFilteredFileExtension>xlsx</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>xls</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>zip</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>eot</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>svg</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>ttf</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>otf</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>woff</nonFilteredFileExtension>-->
+              <!--<nonFilteredFileExtension>woff2</nonFilteredFileExtension>-->
+            <!--</nonFilteredFileExtensions>-->
+          <!--</configuration>-->
+        <!--</plugin>-->
       </plugins>
     </pluginManagement>
       <plugins>
@@ -248,15 +266,6 @@
           <include>**/*.xml</include>
         </includes>
         <filtering>false</filtering>
-      </resource>
-      <!--解决字体等资源拦截问题-->
-      <resource>
-        <directory>src/main/webapp/static</directory>
-        <filtering>true</filtering>
-        <excludes>
-          <exclude>**/*.otf</exclude>
-
-        </excludes>
       </resource>
     </resources>
 

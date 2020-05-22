@@ -43,9 +43,14 @@
                 <img src="${path}/images/${i.imageurl}" alt="">
                 <form action="/image/showImageDetail" method="post">
                     <input type="hidden" name="imageid" value="${i.imageid}">
-                    <input class="showAlbumImage" type="submit" style="display: block;text-align: left;font-size: 30px;cursor: pointer;border: none;background: none;outline: none;color: #363636;" value="查看图片">
+                    <input class="showAlbumImage" type="submit" style="display: block;text-align: left;font-size: 30px;cursor: pointer;border: none;background: none;outline: none;color: #363636;" value="查看相片">
                 </form>
-                <div style="display: block;text-align: left">备注：${i.imagememo}</div>
+                <div style="display: block;text-align: left">备注：${i.imagememo}
+                    <form action="/image/deleteImage" method="post" style="display: inline-block">
+                        <input type="hidden" name="imageid" value="${i.imageid}">
+                        <input id="deleteImage" class="btn btn-danger" type="submit" style="outline: none;" value="删除相片">
+                    </form>
+                </div>
             </div>
         </c:forEach>
     </div>
@@ -65,6 +70,15 @@
         $(this).css("color","#871F78")
     },function () {
         $(this).css("color","#363636")
+    })
+
+    $("#deleteImage").click(function () {
+        var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
     })
 </script>
 </body>

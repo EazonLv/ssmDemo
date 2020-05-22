@@ -4,6 +4,7 @@ import com.entity.Image;
 import com.service.ImageService;
 import com.util.VeDate;
 import org.apache.commons.io.FileUtils;
+import org.junit.Test;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,6 +86,46 @@ public class ImageController extends BaseController{
             model.addAttribute("image",imageService.findImageByCondition(image).get(0));
         }
         return ("imageDetail");
+    }
+
+    @RequestMapping("deleteImage")
+    public String deleteImage(Image image) throws Exception {
+        //验证登录
+        if (this.getSession().getAttribute("userid") == null){
+            this.getSession().setAttribute("message","请先登录");
+            return "response/returnToLogin";
+        }
+
+//        int sign = deleteImageFile(image);
+
+        if(imageService.deleteImage(image)==1){
+            this.getSession().setAttribute("message","删除相片成功！");
+        }
+
+        return "response/returnToUserAlbum";
+
+    }
+
+    /**
+     * 删除服务器和工程目录上的图片文件
+     */
+    @Test
+    public void deleteImageFile() throws Exception{
+        // 服务器路径
+//        String serverPath = this.getSession().getServletContext().getRealPath("/");
+        // 工程目录
+        String realPath = "D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images\\";
+
+        Image image = new Image();
+        image.setImageid("IMG20200521155542593");
+        image.setImageurl("IMG20200521155542.jpeg");
+        String fileName = image.getImageurl();
+
+        System.out.println(fileName);
+//        File file1 = new File(serverPath + fileName);
+        File file2 = new File(realPath + "/images/" + fileName);
+//        System.out.println(file1.delete());
+        System.out.println(file2.delete());
     }
 
 

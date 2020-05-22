@@ -43,7 +43,12 @@
                 <input class="showAlbumImage" type="submit" style="display: block;text-align: left;font-size: 30px;cursor: pointer;border: none;background: none;outline: none;color: #363636;" value="${a.albumname}">
             </form>
             <div style="display: block;text-align: left">创建者：${a.username}</div>
-            <div style="display: block;text-align: left">备注：${a.albummemo}</div>
+            <div style="display: block;text-align: left">备注：${a.albummemo}
+                <form action="/album/deleteAlbum" method="post" style="display: inline-block">
+                    <input type="hidden" value="${a.albumid}" name="albumid">
+                    <button type="submit" class="btn btn-danger" id="deleteAlbum" style="outline: none;">删除相册</button>
+                </form>
+            </div>
         </div>
         </c:forEach>
     </div>
@@ -63,6 +68,15 @@
         $(this).css("color","#871F78")
     },function () {
         $(this).css("color","#363636")
+    })
+
+    $("#deleteAlbum").click(function () {
+        var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
     })
 </script>
 </body>

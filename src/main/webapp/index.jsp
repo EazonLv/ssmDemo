@@ -25,7 +25,7 @@
 </div>
 <div class="login">
     <div class="login_title">Welcome, my friend!</div>
-    <div class="login_bg">
+    <div class="login_bg" style="height: 500px;">
         <div>
             '<!--这个点很重要-->
             <div class="welcome_content">
@@ -33,7 +33,7 @@
                 <div style="border: 1px solid black;border-width:2px;height: 145px;margin-left: auto;margin-right: auto;"></div>
                 <div id="welcome_content_EN"><p>a Little Emotions</p><p>a Little Words</p><p>a Little Sharings</p><p>a Little Happiness</p></div>
             </div>
-            <div id="welcome_navi"><button style="cursor: pointer">开启一段奇妙之旅<br/>Let's begin</button><button style="cursor: pointer">管理员登录<br/>Manager Login</button></div>
+            <div id="welcome_navi"><button style="cursor: pointer" onclick="javascrtpt:window.location.href='${path}/index/home'">开启一段奇妙之旅<br/>Let's begin</button><button style="cursor: pointer">管理员登录<br/>Manager Login</button></div>
         </div>
     </div>
 </div>

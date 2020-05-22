@@ -49,7 +49,7 @@
             <div class="right_content">
                 <h1 class="subitem_subheader" style="text-align: center;padding-top: 10px;padding-bottom:10px;font-family: '幼圆';background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">博文 <span>·</span><span style="font-family: monospace">  Article</span></h1>
                 <c:forEach items="${articleAndWriters}" var="a" begin="0" end="14">
-                    <div class="subitem_summary" style="cursor: pointer">
+                    <div class="subitem_summary" style="cursor: pointer;text-align: left;">
                         <div class="subitem_summary" style="cursor: pointer">
                             <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">标题：${a.title}</a>
                             <div style="background-color: transparent;font-size: 25px;text-align: left;font-style: italic;display: inline-block;font-family: monospace">作者：${a.writer}</div>

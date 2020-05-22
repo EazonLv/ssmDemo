@@ -49,7 +49,7 @@
     <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">所有博文：</div>
 
     <c:forEach items="${articles}" var="a">
-        <div class="subitem_summary" style="cursor: pointer">
+        <div class="subitem_summary" style="cursor: pointer;text-align: left">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
                 <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">标题：${a.title}</a>
                 <div style="background-color: transparent" class="subitem_summary_content">${a.content}</div>
