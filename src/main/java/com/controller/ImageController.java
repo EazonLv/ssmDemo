@@ -14,15 +14,15 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/image")
-public class ImageController extends BaseController{
+public class ImageController extends BaseController {
     @Resource
     private ImageService imageService;
 
     @RequestMapping("/addImage")
     public String addImage(Image image) throws Exception {
         //验证登录
-        if (this.getSession().getAttribute("userid") == null){
-            this.getSession().setAttribute("message","请先登录");
+        if (this.getSession().getAttribute("userid") == null) {
+            this.getSession().setAttribute("message", "请先登录");
             return "response/returnToLogin";
         }
 
@@ -37,42 +37,42 @@ public class ImageController extends BaseController{
             // 获得文件后缀名
             String suffixName = contentType.substring(contentType.indexOf("/") + 1);
             // 得到 文件名
-            filename = "IMG"+VeDate.getStringDatex() + "." + suffixName;
+            filename = "IMG" + VeDate.getStringDatex() + "." + suffixName;
             // 文件保存路径
-            File file1 = new File(realPath + "/images/"+ filename);
+            File file1 = new File(realPath + "/images/" + filename);
             image.getFile().transferTo(file1);
             // 复制到工程目录
-            File file2 = new File("D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images\\"+filename);
+            File file2 = new File("D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images\\" + filename);
             FileUtils.copyFile(file1, file2);
         }
         // 把图片的相对路径保存至数据库
         //sqlPath = "/images/" + filename;
         //System.out.println(sqlPath);
         image.setImageurl(filename);
-        if (imageService.addImage(image)==1){
-            this.getSession().setAttribute("message","相片上传成功");
+        if (imageService.addImage(image) == 1) {
+            this.getSession().setAttribute("message", "相片上传成功");
         }
         return "response/returnToUserAlbum";
     }
 
     @RequestMapping("/showAlbumImage")
-    public String showAlbumImage(Image image, Model model){
+    public String showAlbumImage(Image image, Model model) {
         //验证登录
-        if (this.getSession().getAttribute("userid") == null){
-            this.getSession().setAttribute("message","请先登录");
+        if (this.getSession().getAttribute("userid") == null) {
+            this.getSession().setAttribute("message", "请先登录");
             return "response/returnToLogin";
         }
 
         image.setImageid("");
-        model.addAttribute("albumname",image.getAlbumname());
-        model.addAttribute("albumid",image.getAlbumid());
+        model.addAttribute("albumname", image.getAlbumname());
+        model.addAttribute("albumid", image.getAlbumid());
         image.setAlbumname("");
         List<Image> imageList = imageService.findImageByCondition(image);
 
 
         System.out.println(imageList);
         List<Object> objects = reverseList(imageList);
-        model.addAttribute("imageList",objects);
+        model.addAttribute("imageList", objects);
 
 
         return "userAlbumImage";
@@ -80,12 +80,62 @@ public class ImageController extends BaseController{
     }
 
     @RequestMapping("/showImageDetail")
-    public String showImageDetail(Image image, Model model){
-        if(imageService.findImageByCondition(image)!=null){
-            model.addAttribute("image",imageService.findImageByCondition(image).get(0));
+    public String showImageDetail(Image image, Model model) {
+        if (imageService.findImageByCondition(image) != null) {
+            model.addAttribute("image", imageService.findImageByCondition(image).get(0));
         }
         return ("imageDetail");
     }
 
+    @RequestMapping("deleteImage")
+    public String deleteImage(Image image) throws Exception {
+        //验证登录
+        if (this.getSession().getAttribute("userid") == null) {
+            this.getSession().setAttribute("message", "请先登录");
+            return "response/returnToLogin";
+        }
 
+        //删除源文件：
+        // 服务器路径
+        String serverPath = this.getSession().getServletContext().getRealPath("/");
+        // 工程目录
+        String realPath = "D:\\IdeaProjects\\ssmDemo\\src\\main\\webapp\\images\\";
+
+        List<Image> imageList = imageService.findImageByCondition(image);
+        Image image2 = imageList.get(0);
+        String fileName = image2.getImageurl();
+        File file1 = new File(serverPath + "/images/"+fileName);
+        File file2 = new File(realPath + fileName);
+        boolean f1 = file1.delete();
+        boolean f2 = file2.delete();
+
+
+        if (imageService.deleteImage(image) == 1 && f1==true && f2==true) {
+            this.getSession().setAttribute("message", "删除相片成功！");
+        }else{
+            this.getSession().setAttribute("message", "删除相片失败！");
+        }
+
+        return "response/returnToUserAlbum";
+
+    }
+
+    @RequestMapping("/showAlbumImage_")
+    public String showAlbumImage_(Image image, Model model) {
+
+        image.setImageid("");
+        model.addAttribute("albumname", image.getAlbumname());
+        model.addAttribute("albumid", image.getAlbumid());
+        image.setAlbumname("");
+        List<Image> imageList = imageService.findImageByCondition(image);
+
+
+        System.out.println(imageList);
+        List<Object> objects = reverseList(imageList);
+        model.addAttribute("imageList", objects);
+
+
+        return "albumImage";
+
+    }
 }

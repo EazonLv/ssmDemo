@@ -16,7 +16,7 @@ body{color: #363636}
 .subitem_album h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
 .subitem_album_hr{width: 95%;margin-left: auto;margin-right: auto;margin-top: 8px;margin-bottom: 8px;border: 0.5px solid #363636;}
 #subitem_album{text-align: center;}
-#subitem_album img{width: 90%;padding: 5px}
+#subitem_album img{width: 293px;padding: 5px;height:200px;}
 
 .subitem_message{padding-bottom: 5px;}
 .subitem_message h1{text-align: center;padding-top: 10px;font-family: "幼圆"}
@@ -30,5 +30,5 @@ body{color: #363636}
 #subitem_contact img{width: 95%;}
 
 .subitem_summary_title{padding: 10px;font-size: 30px;text-decoration: none;color: #07558c;word-break: break-all;}
-.subitem_summary_content{padding: 10px;width: 80%;word-break: break-all;}
+.subitem_summary_content{padding: 10px;width: 100%;word-break: break-all;}
 

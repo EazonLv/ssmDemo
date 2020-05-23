@@ -84,6 +84,30 @@
     )
 
     $(".login_bg1 input").attr("autocomplete","off");
+
+    $("#write_textarea_article_title").blur(
+        function () {
+            $(this).attr("placeholder","键入标题 / Enter Title")
+        }
+    )
+
+    $("#write_textarea_article_content").focus(
+        function () {
+            $(this).attr("placeholder","")
+        }
+    )
+
+    $("#write_textarea_article_content").blur(
+        function () {
+            $(this).attr("placeholder","键入正文 / Enter Content")
+        }
+    )
+
+    $("#write_textarea_daily_title").focus(
+        function () {
+            $(this).attr("placeholder","")
+        }
+    )
 </script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>userArticle</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
+    <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
 
@@ -45,14 +46,30 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 
-<div class="content">
+<div class="content" style="width: 100%">
 
-    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的博文：<div style="text-align: right;"><div  class="article_write"  style="text-align: center"><a href="/index/addArticle" style="text-decoration: none;color: #363636;">写博文</a></div></div></div>
+    <div style="text-align: left;margin-bottom: 10px;color: #204d74;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的博文：
+        <a href="/index/addArticle" style="outline: none" class="btn-success btn">添加博文</a>
+    </div>
 
     <c:forEach items="${articles}" var="a">
-        <div class="subitem_summary" style="cursor: pointer">
+        <div class="subitem_summary" style="cursor: pointer;text-align: left">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
-                <a id="showDetail" style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="/article/showUserArticleView?articleid=${a.articleid}">标题：${a.title}</a>
+                <div style="width:100%;background-color: transparent;display:block;padding: 10px;font-size: 30px;text-decoration: none;color: #07558c;word-break: break-all;">标题：${a.title}
+                    <form action="/article/showArticleDetail" style="display: inline-block;" method="post">
+                        <input type="hidden" name="articleid" value="${a.articleid}">
+                        <input type="submit" class="btn btn-success" style="outline: none;" value="查看博文">
+                    </form>
+                    <form action="/article/editArticle" style="display: inline-block;align-self: left" method="post">
+                        <input type="hidden" name="articleid" value="${a.articleid}">
+                        <input type="submit" class="btn btn-success" style="outline: none" value="更新博文">
+                    </form>
+                    <form action="/article/deleteArticle" style="display: inline-block;align-self: left" method="post">
+                        <input type="hidden" name="articleid" value="${a.articleid}">
+                        <input type="submit" class="btn btn-danger deleteArticle" style="outline: none" value="删除博文">
+                    </form>
+                </div>
+
                 <div style="background-color: transparent" class="subitem_summary_content">${a.content}</div>
             </div>
         </div>
@@ -73,6 +90,15 @@
             $(this).css("opacity","0.8")
         }
     )
+
+    $(".deleteArticle").click(function () {
+        var msg = "您真的确定要删除吗？\n\n请确认！";
+        if (confirm(msg)==true){
+            return true;
+        }else{
+            return false;
+        }
+    })
 
     // //用form表单提交
     // function doPost(to, p) { // to:提交动作（action）,p:参数

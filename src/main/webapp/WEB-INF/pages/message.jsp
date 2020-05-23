@@ -22,9 +22,9 @@
 
         .content_1 > div{display: inline-block;margin: 20px;}
         .message_content_float_box{position: relative;border-radius: 15px;display: inline-block;background-color: rgba(255,255,255,0.6);border: 2px solid transparent;padding: 15px;cursor: pointer;}
-        .message_content_float_box span:first-child{font-family: 幼圆;color: black;}
-        .message_content_float_box span:nth-child(2){font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
-        .message_content_float_box span:last-child{font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;margin-left: 20px;display: inline-block}
+        #showMessageDetailbtn{font-family: 幼圆;color: black;}
+        .message_content_float_box span:nth-child(2){text-align:right;font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;display: inline-block}
+        .message_content_float_box span:last-child{text-align:right;font-family: "Microsoft YaHei UI";color: #108ee9;font-size: 15px;display: inline-block}
 
     </style>
 </head>
@@ -32,12 +32,15 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="content1">
-    <div class="content_1">
+    <div class="content_1" style="text-align: left">
         <c:forEach items="${messageList}" var="message">
-            <div class="message_content_float_box">
-                <span>${message.message}</span>
-                <span>${message.messagetime}</span>
-                <span>from ${message.username}</span>
+            <div class="message_content_float_box" style="text-align: right;width: 45%;margin: 1%">
+                <form action="/message/showMessageDetail" method="post" style="text-align: left;">
+                    <input id="showMessageDetailbtn" style="cursor:pointer;display: inline-block;word-break: break-all;text-align: left;outline: none;background: none;border: none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 98%;" value="${message.message}" type="submit">
+                    <input type="hidden" value="${message.messageid}" name="messageid">
+                </form>
+                <span style="width: 18%;display: inline-block;word-break: break-all;">${message.messagetime}</span>
+                <span style="width: 18%;display: inline-block;word-break: break-all;">from ${message.username}</span>
             </div>
         </c:forEach>
     </div>

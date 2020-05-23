@@ -11,9 +11,3 @@ $("#welcome_navi button").hover(
         $(this).css("background","buttonface");
     }
 );
-$("#welcome_navi button:nth-child(1)").click(function () {
-    window.location.href = "./home.html";
-});
-$("#welcome_navi button:nth-child(2)").click(function () {
-    window.location.href = "./manager_login.html";
-});

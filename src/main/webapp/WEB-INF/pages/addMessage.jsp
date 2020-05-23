@@ -77,6 +77,20 @@
     )
 
     $(".login_bg1 input").attr("autocomplete","off");
+
+
+    $("#write_textarea_article_content").focus(
+        function () {
+            $(this).attr("placeholder","")
+        }
+    )
+
+    $("#write_textarea_article_content").blur(
+        function () {
+            $(this).attr("placeholder","键入留言 / Enter Message")
+        }
+    )
+
 </script>
 </body>
 </html>
