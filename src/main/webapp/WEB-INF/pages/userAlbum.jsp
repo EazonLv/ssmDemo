@@ -51,7 +51,7 @@
                 </form>
                 <form action="/album/deleteAlbum" method="post" style="display: inline-block">
                     <input type="hidden" value="${a.albumid}" name="albumid">
-                    <button type="submit" class="btn btn-danger" id="deleteAlbum" style="outline: none;">删除相册</button>
+                    <button type="submit" class="btn btn-danger deleteAlbum" style="outline: none;">删除相册</button>
                 </form>
             </div>
         </div>
@@ -75,7 +75,7 @@
         $(this).css("color","#363636")
     })
 
-    $("#deleteAlbum").click(function () {
+    $(".deleteAlbum").click(function () {
         var msg = "您真的确定要删除吗？\n\n请确认！";
         if (confirm(msg)==true){
             return true;

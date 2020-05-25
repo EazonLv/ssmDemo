@@ -49,7 +49,7 @@
                 <div style="width:100%;display: block;text-align: left">备注：${i.imagememo}
                     <form action="/image/deleteImage" method="post" style="display: inline-block">
                         <input type="hidden" name="imageid" value="${i.imageid}">
-                        <input id="deleteImage" class="btn btn-danger" type="submit" style="outline: none;" value="删除相片">
+                        <input class="btn btn-danger deleteImage" type="submit" style="outline: none;" value="删除相片">
                     </form>
                 </div>
             </div>
@@ -73,7 +73,7 @@
         $(this).css("color","#363636")
     })
 
-    $("#deleteImage").click(function () {
+    $(".deleteImage").click(function () {
         var msg = "您真的确定要删除吗？\n\n请确认！";
         if (confirm(msg)==true){
             return true;

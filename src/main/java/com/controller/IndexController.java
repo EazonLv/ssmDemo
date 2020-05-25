@@ -26,8 +26,6 @@ public class IndexController extends BaseController{
 	@Resource
 	private AlbumService albumService;
 
-	@RequestMapping("index")
-	public String indexIndex(){return "index";}
 
 	@RequestMapping("/login")
 	public String indexLogin(){return "userLogin";}
@@ -98,7 +96,7 @@ public class IndexController extends BaseController{
 		}
 		List<ArticleAndWriter> articleAndWriters = new ArrayList<ArticleAndWriter>();
 		for(int i=0;i<articleList.size();i++){
-			ArticleAndWriter aaw = new ArticleAndWriter(articleList.get(i).getTitle(),articleList.get(i).getContent(),username.get(i));
+			ArticleAndWriter aaw = new ArticleAndWriter(articleList.get(i).getTitle(),articleList.get(i).getContent(),articleList.get(i).getArticleid(),username.get(i));
 			articleAndWriters.add(aaw);
 		}
 		return articleAndWriters;

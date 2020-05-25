@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>userMessage</title>
     <link rel="stylesheet" href="${path}/static/css/reset.css">
+    <link rel="stylesheet" href="${path}/static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="${path}/static/css/self_defined_setting.css">
     <link rel="stylesheet" href="${path}/static/css/home.css">
 
@@ -45,14 +46,26 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 
-<div class="content">
-    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的留言：<div style="text-align: right;"><div  class="article_write"  style="text-align: center"><a href="/index/addMessage" style="text-decoration: none;color: #363636;">写留言</a></div></div></div>
+<div class="content" style="width: 100%">
+    <div style="text-align: left;margin-bottom: 10px;color: #204d74;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">我的留言：
+        <a href="/index/addMessage" style="outline: none" class="btn btn-success">添加留言</a>
+    </div>
 
     <c:forEach items="${messages}" var="m">
         <div class="subitem_summary" style="cursor: pointer;text-align: left">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
                 <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">from${m.username}</a>
-                <div style="background-color: transparent" class="subitem_summary_content">${m.message}</div>
+                <div style="width:100%;display:block;background-color: transparent" class="subitem_summary_content">${m.message}
+                    <form action="/message/showUserMessageDetail" style="display: inline-block;align-self: left" method="post">
+                        <input type="hidden" name="messageid" value="${m.messageid}">
+                        <input type="submit" class="btn btn-success" style="outline: none" value="查看回复">
+                    </form>
+                    <form action="/message/deleteMessage" style="display: inline-block;align-self: left" method="post">
+                        <input type="hidden" name="messageid" value="${m.messageid}">
+                        <input type="submit" class="btn btn-danger" style="outline: none" value="删除留言">
+                    </form>
+
+                </div>
             </div>
         </div>
     </c:forEach>

@@ -107,6 +107,20 @@
 
     })
 
+
+    $("#write_textarea_article_content").focus(
+        function () {
+            $(this).attr("placeholder","")
+        }
+    )
+
+    $("#write_textarea_article_content").blur(
+        function () {
+            $(this).attr("placeholder","键入图片描述 / Enter Image Memo")
+        }
+    )
+
+
 </script>
 </body>
 </html>

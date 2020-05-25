@@ -3,11 +3,13 @@ package com.util;
 public class ArticleAndWriter {
 	private String title;
 	private String content;
+	private String articleid;
 	private String writer;
 
-	public ArticleAndWriter(String title, String content, String writer) {
+	public ArticleAndWriter(String title, String content, String articleid, String writer) {
 		this.title = title;
 		this.content = content;
+		this.articleid = articleid;
 		this.writer = writer;
 	}
 
@@ -27,6 +29,14 @@ public class ArticleAndWriter {
 		this.content = content;
 	}
 
+	public String getArticleid() {
+		return articleid;
+	}
+
+	public void setArticleid(String articleid) {
+		this.articleid = articleid;
+	}
+
 	public String getWriter() {
 		return writer;
 	}
@@ -40,6 +50,7 @@ public class ArticleAndWriter {
 		return "ArticleAndWriter{" +
 				"title='" + title + '\'' +
 				", content='" + content + '\'' +
+				", articleid='" + articleid + '\'' +
 				", writer='" + writer + '\'' +
 				'}';
 	}

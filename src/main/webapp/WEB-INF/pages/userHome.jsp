@@ -48,7 +48,10 @@
                     <div class="subitem_message_hr"></div>
                     <div style="background-color: transparent;word-break: break-all;padding-left: 5px;padding-right: 5px;" id="subitem_message">
                         <c:forEach items="${messages}" var="message" begin="0" end="4">
-                            <div style="text-align: left">${message.message}<br/><span>${message.messagetime}</span>&nbsp;&nbsp;<span>from ${message.username}</span></div>
+                            <form action="/message/showMessageDetail" method="post">
+                                <input type="hidden" name="messageid" value="${message.messageid}">
+                                <button type="submit" style="cursor:pointer;text-align: left;padding: 10px;background-color: #dddddd;border-radius: 10px;outline: none;display: block;width: 100%">${message.message}<br/><span>${message.messagetime}</span>&nbsp;&nbsp;<span>from ${message.username}</span></button>
+                            </form>
                         </c:forEach>
                     </div>
                 </div>
@@ -58,10 +61,13 @@
                 <h1 class="subitem_subheader" style="text-align: center;padding-top: 10px;padding-bottom:10px;font-family: '幼圆';background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">博文 <span>·</span><span style="font-family: monospace">  Article</span></h1>
                 <c:forEach items="${articleAndWriters}" var="a" begin="0" end="14">
                     <div class="subitem_summary" style="cursor: pointer;text-align: left;">
-                        <div class="subitem_summary" style="cursor: pointer">
-                            <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">标题：${a.title}</a>
+                        <div class="subitem_summary" style="cursor: pointer;">
+                            <form action="/article/showArticleDetail" method="post" style="display: inline-block;">
+                                <input type="hidden" name="articleid" value="${a.articleid}">
+                                <input style="background-color: transparent;display: inline-block;outline: none;border: none;cursor: pointer;" class="subitem_summary_title" value="标题：${a.title}" type="submit">
+                            </form>
                             <div style="margin:10px;background-color: transparent;font-size: 25px;text-align: left;font-style: italic;display: inline-block;font-family: monospace;">作者：${a.writer}</div>
-                            <div style="background-color: transparent;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100%;" class="subitem_summary_content">${a.content}</div>
+                            <div class="subitem_summary_content" style="background-color: transparent;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 95%;" >${a.content}</div>
                         </div>
                     </div>
                 </c:forEach>
@@ -80,6 +86,12 @@
         $(this).css("color","#871F78")
     },function () {
         $(this).css("color","#363636")
+    })
+
+    $(".subitem_message button").hover(function () {
+        $(this).css("opacity","0.7")
+    },function () {
+        $(this).css("opacity","1")
     })
 </script>
 </body>

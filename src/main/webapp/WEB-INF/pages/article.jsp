@@ -48,11 +48,15 @@
 <div class="content">
     <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">所有博文：</div>
 
-    <c:forEach items="${articles}" var="a">
+    <c:forEach items="${articleAndWriters}" var="a">
         <div class="subitem_summary" style="cursor: pointer;text-align: left">
             <div class="subitem_summary" style="cursor: pointer;background-color: rgba(255,255,255,0.6);margin-bottom: 10px;">
-                <a style="background-color: transparent;display: inline-block" class="subitem_summary_title" href="#">标题：${a.title}</a>
-                <div style="background-color: transparent" class="subitem_summary_content">${a.content}</div>
+                <form action="/article/showArticleDetail" method="post" style="display: inline-block;">
+                    <input type="hidden" name="articleid" value="${a.articleid}">
+                    <input style="background-color: transparent;display: inline-block;outline: none;border: none;cursor: pointer;" class="subitem_summary_title" value="标题：${a.title}" type="submit">
+                </form>
+                <div style="margin:10px;background-color: transparent;font-size: 25px;text-align: left;font-style: italic;display: inline-block;font-family: monospace;">作者：${a.writer}</div>
+                <div style="background-color: transparent;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 98%;" class="subitem_summary_content">${a.content}</div>
             </div>
         </div>
     </c:forEach>

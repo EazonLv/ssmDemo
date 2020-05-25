@@ -1,7 +1,9 @@
 package com.entity;
 
+import com.util.VeDate;
+
 public class Msgleaveword {
-	private String msgleavewordid;
+	private String msgleavewordid = "MSGLVWD"+VeDate.getStringId();
 	private String leaveword;
 	private String userid;
 	private String username;

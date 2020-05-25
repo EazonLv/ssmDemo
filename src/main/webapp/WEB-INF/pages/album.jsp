@@ -26,7 +26,8 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="content" style="width: 100%">
-    
+    <div style="text-align: center;margin-bottom: 10px;color: #07558c;font-size: 30px;background-color: rgba(255,255,255,0.6);padding:10px; ">所有相册：</div>
+
     <div class="content_" style="display: inline-block;">
         <c:forEach items="${albumList}" var="a">
         <div style="background: rgba(255,255,255,0.6);padding: 10px;border-radius: 10px;">
