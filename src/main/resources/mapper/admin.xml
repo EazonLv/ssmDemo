@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 配置Mybatis映射文件 -->
+<mapper namespace="com.dao.AdminDao">
+    <resultMap id="adminMap" type="com.entity.Admin">
+        <id property="adminid" column="adminid" />
+        <result property="adminname" column="adminname"/>
+        <result property="password" column="password"/>
+    </resultMap>
+    <!-- 插入语句 DAO通过id调用此配置 -->
+    <insert id="addAdmin" parameterType="com.entity.Admin">
+		insert into t_admins(adminid , adminname , password ) values(#{adminid} , #{adminname} ,
+		#{password} )
+	</insert>
+    <!-- 更新语句 DAO通过id调用此配置 -->
+    <update id="updateAdminInfo" parameterType="com.entity.Admin">
+		update t_admins set adminname=#{adminname} , password=#{password}
+		where
+		adminid=#{adminid}
+	</update>
+    <!-- 按主键删除 DAO通过id调用此配置 -->
+    <delete id="deleteAdmin" parameterType="String">
+		delete from t_admins where
+		adminid = #{adminid}
+	</delete>
+    <!-- 查询全部信息 DAO通过id调用此配置 -->
+    <select id="findAllAdmins" resultMap="adminMap">
+		select * from t_admins
+	</select>
+    <!-- 按条件精确查询 DAO通过id调用此配置 -->
+    <select id="findAdminByCondition" parameterType="com.entity.Admin"
+            resultMap="adminMap">
+        select * from t_admins a where 1=1
+        <if test="adminid != null and '' != adminid">
+            and adminid = #{adminid}
+        </if>
+        <if test="adminname != null and '' != adminname">
+            and adminname = #{adminname}
+        </if>
+        <if test="password != null and '' != password">
+            and password = #{password}
+        </if>
+    </select>
+    <!-- 按条件模糊查询 DAO通过id调用此配置 -->
+    <select id="findAdminByLike" parameterType="com.entity.Admin"
+            resultMap="adminMap">
+        select a.* from t_admins a where 1=1
+        <if test="adminid != null and '' != adminid">
+            and a.adminid like CONCAT('%', CONCAT(#{adminid}, '%'))
+        </if>
+        <if test="adminname != null and '' != adminname">
+            and a.adminname like CONCAT('%', CONCAT(#{adminname}, '%'))
+        </if>
+        <if test="password != null and '' != password">
+            and a.password like CONCAT('%', CONCAT(#{password}, '%'))
+        </if>
+    </select>
+</mapper>

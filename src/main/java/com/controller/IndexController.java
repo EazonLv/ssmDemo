@@ -67,6 +67,7 @@ public class IndexController extends BaseController{
 	@RequestMapping("/addAlbum")
 	public String indexToAddAlbum(){if (isNotLogin()){return "response/returnToLogin";}return "addAlbum"; }
 
+
 	/**
 	 * 判断是否登陆
 	 */

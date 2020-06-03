@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="ssmDemo:war exploded">
+  <artifact type="exploded-war" name="ssmDemo:war exploded">
     <output-path>$PROJECT_DIR$/target/ssmDemo</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

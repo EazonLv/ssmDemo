@@ -32,4 +32,11 @@ public interface MsgleavewordDao {
 	 * @return
 	 */
 	public List<Msgleaveword> findMsgleavewordByCondition(Msgleaveword msgleaveword);
+
+	/**
+	 * 模糊查询
+	 * @param msgleaveword
+	 * @return
+	 */
+	public List<Msgleaveword> findMsgleavewordByLike(Msgleaveword msgleaveword);
 }

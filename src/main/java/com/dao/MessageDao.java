@@ -34,4 +34,10 @@ public interface MessageDao {
 	 */
 	public List<Message> findMessageByCondition(Message message);
 
+	/**
+	 * 模糊查询
+	 * @param message
+	 * @return
+	 */
+	public List<Message> findMessageByLike(Message message);
 }

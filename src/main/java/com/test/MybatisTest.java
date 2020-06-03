@@ -1,11 +1,7 @@
 package com.test;
 
-import com.dao.ArticleDao;
-import com.dao.ImageDao;
-import com.dao.MessageDao;
-import com.entity.Article;
-import com.entity.Message;
-import com.entity.Image;
+import com.dao.*;
+import com.entity.*;
 import com.util.ArticleAndWriter;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -36,11 +32,26 @@ public class MybatisTest {
 		//获取代理对象
 
 
-		ImageDao imageDao = sqlSession.getMapper(ImageDao.class);
-		List<Image> imageList = imageDao.findAllImage();
-		for(Image m:imageList){
-			System.out.println(m);
+		User user = new User();
+		user.setUserid("");
+		user.setUsername("吕");
+		UserDao userDao = sqlSession.getMapper(UserDao.class);
+		List<User> users = userDao.findUsersByLike(user);
+		for (User user1:users){
+			System.out.println(user1);
 		}
+
+//		AdminDao adminDao= sqlSession.getMapper(AdminDao.class);
+//		List<Admin> admins = adminDao.findAllAdmins();
+//		for (Admin a:admins){
+//			System.out.println(a);
+//		}
+
+//		ImageDao imageDao = sqlSession.getMapper(ImageDao.class);
+//		List<Image> imageList = imageDao.findAllImage();
+//		for(Image m:imageList){
+//			System.out.println(m);
+//		}
 
 
 //		MessageDao messageDao = sqlSession.getMapper(MessageDao.class);

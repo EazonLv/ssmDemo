@@ -34,6 +34,13 @@ public interface AlbumDao {
      */
     public List<Album> findAlbumByCondition(Album album);
 
+    /**
+     * 模糊查询
+     * @param album
+     * @return
+     */
+    public List<Album> findAlbumByLike(Album album);
+
 
 
 }

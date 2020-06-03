@@ -33,4 +33,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> findUserByCondition(User user) { return userDao.findUserByCondition(user);}
+
+	/**
+	 * 模糊查询
+	 *
+	 * @param user
+	 * @return
+	 */
+	@Override
+	public List<User> findUsersByLike(User user) {
+		return userDao.findUsersByLike(user);
+	}
 }

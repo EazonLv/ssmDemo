@@ -79,7 +79,7 @@
         <div>留言</div>
         <div>Message</div>
     </a>
-    <a class="items" href="">
+    <a class="items" href="#">
         <div>友情链接</div>
         <div>Link</div>
     </a>
@@ -115,6 +115,5 @@
         }
     )
 </script>
-</body>
 </body>
 </html>

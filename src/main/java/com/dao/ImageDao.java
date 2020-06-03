@@ -33,4 +33,11 @@ public interface ImageDao {
      * @return
      */
     public List<Image> findImageByCondition(Image image);
+
+    /**
+     * 模糊查询
+     * @param image
+     * @return
+     */
+    public List<Image> findImageByLike(Image image);
 }

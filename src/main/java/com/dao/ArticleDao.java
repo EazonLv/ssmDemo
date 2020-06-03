@@ -43,4 +43,10 @@ public interface ArticleDao {
 	public List<Article> findWriter(Article article);
 
 
+	/**
+	 * 模糊查询
+	 * @param article
+	 * @return
+	 */
+	public List<Article> findArticleByLike(Article article);
 }

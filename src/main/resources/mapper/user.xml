@@ -25,7 +25,7 @@
 		userid = #{userid}
 	</delete>
     <!-- 查询全部信息 DAO通过id调用此配置 -->
-    <select id="findAllUsers" resultMap="userMap">
+    <select id="findAllUser" resultMap="userMap">
 		select * from t_users
 	</select>
 	<!-- 按条件精确查询 DAO通过id调用此配置 -->
@@ -37,6 +37,20 @@
 		</if>
 		<if test="password != null and '' != password">
 			and password = #{password}
+		</if>
+	</select>
+	<!-- 按条件模糊查询 DAO通过id调用此配置 -->
+	<select id="findUsersByLike" parameterType="com.entity.User"
+			resultMap="userMap">
+		select a.* from t_users a where 1=1
+		<if test="userid != null and '' != userid">
+			and a.userid like CONCAT('%', CONCAT(#{userid}, '%'))
+		</if>
+		<if test="username != null and '' != username">
+			and a.username like CONCAT('%', CONCAT(#{username}, '%'))
+		</if>
+		<if test="password != null and '' != password">
+			and a.password like CONCAT('%', CONCAT(#{password}, '%'))
 		</if>
 	</select>
 </mapper>

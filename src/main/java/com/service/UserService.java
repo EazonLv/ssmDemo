@@ -31,4 +31,11 @@ public interface UserService {
 	 * 按条件精确查找用户
 	 */
 	public List<User> findUserByCondition(User user);
+
+	/**
+	 * 模糊查询
+	 * @param user
+	 * @return
+	 */
+	public List<User> findUsersByLike(User user);
 }
